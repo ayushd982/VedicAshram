@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import Footer from '../Footer/Footer';
 import { useLanguage } from '../../context/LanguageContext';
 import './Bhoomipujan.css';
-import kalashImage from '../../assets/kalsh.png'; // Update this path to match your project structure
+import kalashImage from '../../assets/Kalsh.png'; // Update this path to match your project structure
 
 const Bhoomi = () => {
   const { language } = useLanguage();
