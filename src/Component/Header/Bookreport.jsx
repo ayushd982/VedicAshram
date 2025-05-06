@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Footer from '../Footer/Footer';
 import Navbar from './Navbar';
-import './BookReport.css';
+import './Bookreport.css';
 
 const BookReport = () => {
   const [selectedReport, setSelectedReport] = useState(null);
