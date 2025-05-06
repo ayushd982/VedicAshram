@@ -5,9 +5,9 @@ import Fallback from './Component/Fallback.jsx'
 import LoadingIndicator from './Component/LoadingIndicator.jsx'
 import { LanguageProvider } from './context/LanguageContext'
 import ScrollButtons from './Component/Header/ScrollButtons'
-import chatNow from './Component/Header/chatNow';
-import TalkNow from './Component/Header/TalkNow';
-import BookReport from './Component/Header/BookReport';
+import chatnow from './Component/Header/chatnow';
+import Talknow from './Component/Header/Talknow';
+import Bookreport from './Component/Header/Bookreport';
 // Lazy load components to improve performance
 const Home = lazy(() => import('./Component/Header/Home.jsx'))
 const About = lazy(() => import('./Component/Header/About.jsx'))
@@ -247,8 +247,8 @@ const App = () => {
               <Route path="/yagya/kal-sarp-dosh" element={<KalSarp />} />
               <Route path="/askques" element={<Askques />} />
               <Route path="/chatnow" element={<chatnow />} />
-              <Route path="/bookreport" element={<BookReport />} />
-              <Route path="/talknow" element={<TalkNow />} />
+              <Route path="/bookreport" element={<Bookreport />} />
+              <Route path="/talknow" element={<Talknow />} />
               <Route path="/services/career-astrology/planetary-influence" element={<Planetary />} />
               <Route path="*" element={<Home />} />
             </Routes>
