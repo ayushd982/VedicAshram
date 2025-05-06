@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './about.css';
+import './About.css';
 import Navbar from './Navbar.jsx';
 import Footer from '../Footer/Footer';
 import { useLanguage } from '../../context/LanguageContext';
