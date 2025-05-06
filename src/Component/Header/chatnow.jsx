@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Footer from '../Footer/Footer';
 import Navbar from './Navbar';
-import './ChatNow.css';
+import './chatnow.css';
 
 const ChatNow = () => {
   const [messages, setMessages] = useState([]);
