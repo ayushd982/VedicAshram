@@ -1,0 +1,169 @@
+/* Language Dropdown Styles */
+.language-selector {
+  position: relative;
+  z-index: 2000;
+}
+
+.language-selector button {
+  color: #FFD700;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease;
+}
+
+.language-selector button:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+  border-radius: 4px;
+}
+
+.language-dropdown, .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #0D1B2A;
+  border: 1px solid #FFD700;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  width: 120px;
+  z-index: 2001;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease;
+  display: flex;
+  flex-direction: column; /* Ensure vertical display for PC */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.language-dropdown button, .dropdown-menu button {
+  width: 100%;
+  text-align: left;
+  padding: 10px 15px;
+  border: none;
+  background: transparent;
+  color: #FFD700;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.language-dropdown button:not(:last-child), .dropdown-menu button:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.language-dropdown button:hover, .dropdown-menu button:hover {
+  background-color: #1A2C3A;
+}
+
+.language-dropdown button.active, .dropdown-menu button.active {
+  background-color: #1A2C3A;
+}
+
+/* PC-specific language dropdown styles */
+@media (min-width: 769px) {
+  /* Ensure language dropdown displays vertically in PC view */
+  .language-menu-item .dropdown-menu {
+    display: none; /* Hide by default, show on hover */
+    flex-direction: column !important; /* Force vertical display */
+    width: 120px !important;
+  }
+  
+  /* Show dropdown on hover */
+  .language-menu-item:hover .dropdown-menu {
+    display: flex !important;
+  }
+  
+  /* Style language buttons in PC view */
+  .language-menu-item .dropdown-menu button {
+    width: 100% !important;
+    display: block !important;
+    text-align: center !important;
+    padding: 10px !important;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.3) !important;
+  }
+  
+  .language-menu-item .dropdown-menu button:last-child {
+    border-bottom: none !important;
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .language-selector {
+    width: 100%;
+    text-align: center;
+    display: block !important;
+  }
+  
+  /* Always show language dropdown on mobile */
+  .language-menu-item .dropdown-menu {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .language-selector button {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .dropdown-menu-item {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .language-dropdown, .dropdown-menu {
+    position: relative;
+    width: 100%;
+    max-width: 90%;
+    margin: 10px auto;
+    right: auto;
+    background-color: rgba(13, 27, 42, 0.95);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    display: block !important;
+    z-index: 2002; /* Ensure it's above other elements */
+  }
+  
+  .dropdown-menu-item {
+    width: 100%;
+    margin: 8px 0;
+    padding-bottom: 8px;
+  }
+  
+  .nav-link {
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 16px;
+  }
+  
+  .language-dropdown button, .dropdown-menu button {
+    text-align: center;
+    padding: 15px;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+    font-weight: bold;
+    background-color: rgba(13, 27, 42, 0.95);
+  }
+  
+  .language-dropdown button:last-child, .dropdown-menu button:last-child {
+    border-bottom: none;
+  }
+}

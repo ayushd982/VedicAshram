@@ -1,0 +1,536 @@
+/* General Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #333333; /* Changed from white to dark gray for better visibility */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.about-container {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #121212;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main Content Styles with Dark Theme */
+.about-main-content {
+  padding-top: 30px; /* Reduced padding since header is now static */
+  padding-bottom: 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  position: relative;
+  overflow: hidden;
+  flex: 1; /* Take up available space */
+}
+
+/* Add decorative elements */
+.about-main-content::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(106, 13, 173, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 30%, rgba(106, 13, 173, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 50% 80%, rgba(106, 13, 173, 0.1) 0%, transparent 20%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Add subtle animation to background */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.about-main-content {
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+/* Header Section */
+.about-header {
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.about-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #333333;
+  text-shadow: 0 0 10px rgba(106, 13, 173, 0.5);
+  line-height: 1.3;
+}
+
+.about-header .tagline {
+  display: inline-block;
+  color: #000000;
+  background: linear-gradient(90deg, #ffd700, #ffb700);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* About content wrapper - new layout with image on left and text on right */
+.about-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  align-items: stretch; /* Make children stretch to match heights */
+}
+
+/* Image container on the left */
+.about-image-container {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically */
+  max-width: 50%; /* Equal space but with max-width */
+  padding: 20px 0; /* Add some padding */
+}
+
+.constillation-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: cover; /* Ensure image covers the container properly */
+  width: 100%; /* Take full width of container */
+}
+
+.constillation-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(106, 13, 173, 0.4);
+}
+
+/* Text container on the right */
+.about-text-container {
+  flex: 1;
+  min-width: 300px;
+  max-width: 50%; /* Equal space but with max-width */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space between intro and what we do section */
+  padding: 20px 0; /* Add some padding */
+}
+
+.intro-paragraph {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  background-color: rgba(255, 255, 255, 0.8); /* Increased opacity for better contrast */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-left: 4px solid #6a0dad;
+  color: #333333; /* Changed to dark gray */
+  font-weight: 500; /* Slightly bolder text */
+  margin-bottom: 20px;
+  max-height: 30%; /* Limit height to ensure what we do section is visible */
+}
+
+/* About section inside text container - for parallel display with image */
+.about-text-container .about-section {
+  margin-bottom: 30px;
+  padding: 25px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+  border-left: 4px solid #ffd700;
+  height: calc(100% - 130px); /* Adjust height to match the image, accounting for intro paragraph */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Add hover effect to the section */
+.about-text-container .about-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the heading in the what we do section */
+.about-text-container .about-section h2 {
+  color: #ffd700;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Content Sections */
+.about-section {
+  margin-bottom: 40px;
+  padding: 30px 20px;
+  background-color: rgba(255, 255, 255, 0.8); /* Increased opacity for better contrast */
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+/* Full-width sections container */
+.full-width-sections {
+  max-width: 1200px;
+  width: 100%;
+  margin: 30px auto 0;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: block;
+  clear: both;
+}
+
+/* Full-width about section */
+.about-section.full-width, .about-section.fullwidth {
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.8); /* Increased opacity for better contrast */
+}
+
+.about-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.about-section h2 {
+  color: #000000;
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #ffd700, #ffb700);
+  border-radius: 4px;
+  display: inline-block;
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 0;
+  color: #333333; /* Changed to dark gray */
+  font-weight: 500; /* Slightly bolder text */
+  text-shadow: none; /* Removed text shadow for better readability on light background */
+}
+
+/* Spacers */
+.spacer {
+  height: 30px;
+}
+
+/* Footer spacer */
+.footer-spacer {
+  height: 80px; /* Space between content and footer */
+  width: 100%;
+}
+
+/* Responsive styles for the about content layout */
+@media (max-width: 768px) {
+  .about-content-wrapper {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .about-text-container .about-section {
+    margin-top: 20px;
+    height: auto;
+  }
+  
+  .about-image-container {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  .constillation-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .about-text-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  .intro-paragraph {
+    max-height: none;
+  }
+  
+  .about-header h1 {
+    font-size: 2rem;
+  }
+  
+  .about-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .full-width-sections {
+    padding: 0 15px;
+  }
+  
+  .about-section.full-width {
+    padding: 20px 15px;
+  }
+}
+
+/* Astrologer and Contact Form Section */
+.astrologer-contact-section {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  width: 100%;
+  margin: 40px auto;
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Astrologer Section */
+.astrologer-section {
+  flex: 1;
+  min-width: 300px;
+  max-width: calc(50% - 15px);
+  background-color: rgba(255, 255, 255, 0.8); /* Increased opacity for better contrast */
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.astrologer-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.astrologer-section h2 {
+  color: #000000;
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding: 8px 15px;
+  background: linear-gradient(90deg, #ffd700, #ffb700);
+  border-radius: 4px;
+  display: inline-block;
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+}
+
+.astrologer-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.astrologer-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #6a0dad;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+
+.astrologer-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.astrologer-info {
+  text-align: center;
+}
+
+.astrologer-info h3 {
+  font-size: 1.5rem;
+  color: #333333; /* Changed to dark gray */
+  margin-bottom: 5px;
+}
+
+.astrologer-specialization {
+  color: #f39c12;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.astrologer-rating {
+  color: #ffd700;
+  margin-bottom: 15px;
+}
+
+.rating-count {
+  color: #666; /* Darker gray for better visibility */
+  font-size: 0.9rem;
+  margin-left: 5px;
+}
+
+.astrologer-description {
+  color: #333333; /* Changed to dark gray */
+  line-height: 1.6;
+  text-align: justify;
+  font-weight: 500; /* Slightly bolder text */
+  text-shadow: none; /* Removed text shadow for better readability */
+}
+
+/* Contact Form Section */
+.contact-form-section {
+  flex: 1;
+  min-width: 300px;
+  max-width: calc(50% - 15px);
+  background-color: rgba(255, 255, 255, 0.8); /* Increased opacity for better contrast */
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.contact-form-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.form-container h2 {
+  color: #000000;
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding: 8px 15px;
+  background: linear-gradient(90deg, #ffd700, #ffb700);
+  border-radius: 4px;
+  display: inline-block;
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.2); /* Darker border for better visibility */
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.9); /* Lighter background */
+  color: #333333; /* Dark text color */
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #6a0dad;
+  box-shadow: 0 0 0 2px rgba(106, 13, 173, 0.2);
+  background-color: #ffffff;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #666; /* Darker placeholder text */
+}
+
+.form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 30px;
+}
+
+.form-group select option {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg, #6a0dad, #9b59b6);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(106, 13, 173, 0.3);
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(90deg, #7b21be, #a66bbe);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(106, 13, 173, 0.4);
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #0a0a0a;
+  color: #e0e0e0;
+  padding: 60px 0 20px;
+  position: relative;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}

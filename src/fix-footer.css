@@ -1,0 +1,78 @@
+/* Fix for footer gap issue */
+
+/* Ensure no gap after footer */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: none;
+}
+
+.app-container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.site-footer {
+  margin-top: auto;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  width: 100%;
+  position: relative;
+  z-index: 1000 !important;
+  display: block;
+  clear: both;
+}
+
+.site-footer::after {
+  content: none !important;
+}
+
+.footer-bottom {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.footer-bottom::after {
+  content: none !important;
+}
+
+.footer-bottom .container {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Fix for any potential margin collapse issues */
+.site-footer + * {
+  margin-top: 0 !important;
+}
+
+/* Ensure content doesn't push footer down */
+.numerology-content,
+.vastu-content,
+.vedicastrology-content,
+.career-astrology-content,
+.about-main-content,
+.service-content,
+.contact-hero {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Fix for any potential margin on the last element before footer */
+.numerology-container > *:last-child,
+.vastu-container > *:last-child,
+.vedicastrology-container > *:last-child,
+.career-astrology-container > *:last-child,
+.about-container > *:last-child,
+.service-container > *:last-child,
+.contact-container > *:last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}

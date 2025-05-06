@@ -1,0 +1,831 @@
+/* Career Astrology Page Styles */
+
+.career-astrology-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0c0c1d 0%, #1a1a3a 50%, #0c0c1d 100%);
+  background-attachment: fixed;
+  position: relative;
+  color: #e0e0e0;
+  font-family: 'Poppins', sans-serif;
+  z-index: 1;
+}
+
+/* Cosmic background with stars */
+.career-astrology-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 40px 60px, #ffffff 100%, transparent),
+    radial-gradient(2px 2px at 20px 50px, #ffffff 100%, transparent),
+    radial-gradient(2px 2px at 30px 100px, #ffffff 100%, transparent),
+    radial-gradient(2px 2px at 40px 60px, #ffffff 100%, transparent),
+    radial-gradient(2px 2px at 110px 90px, #ffffff 100%, transparent),
+    radial-gradient(2px 2px at 190px 150px, #ffffff 100%, transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.15;
+  animation: twinkle 5s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.15;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+/* Ensure the footer is visible */
+.career-astrology-page .site-footer {
+  position: relative;
+  z-index: 2;
+  margin-top: 0;
+  width: 100%;
+  display: block;
+  clear: both;
+}
+
+.career-astrology-content {
+  flex: 1;
+  padding-top: 150px; /* Space after navbar */
+  padding-bottom: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.career-astrology-content .career-astrology-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: rgba(26, 26, 58, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Page Header Styles */
+.page-header {
+  position: relative;
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cosmic-decoration {
+  position: absolute;
+  width: 150px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(255, 165, 0, 0.8), transparent);
+}
+
+.cosmic-decoration.left {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cosmic-decoration.right {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.main-heading {
+  font-size: 2.5rem;
+  color: #f5f5f5;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+  position: relative;
+  display: inline-block;
+  padding: 0 30px;
+}
+
+.main-heading i {
+  color: #ffa500;
+  margin-right: 15px;
+  font-size: 2rem;
+  vertical-align: middle;
+}
+
+.heading-subtitle {
+  display: block;
+  font-size: 1.2rem;
+  color: #d0d0d0;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+/* Section Styles */
+section {
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.section-heading {
+  font-size: 1.8rem;
+  color: #ffa500;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  position: relative;
+  font-weight: 600;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #ffa500, transparent);
+}
+
+.section-heading i {
+  margin-right: 12px;
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
+/* Intro Section */
+.intro-paragraph {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  color: #d0d0d0;
+}
+
+.cosmic-illustration {
+  height: 200px;
+  position: relative;
+  margin: 40px 0;
+  overflow: hidden;
+}
+
+.planets-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  animation: rotate 60s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.planet {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.planet.sun {
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at 30% 30%, #ffdb58, #ff8c00);
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.8);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.planet.mercury {
+  width: 10px;
+  height: 10px;
+  background-color: #b5b5b5;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+.planet.venus {
+  width: 15px;
+  height: 15px;
+  background-color: #e8cda0;
+  top: 30%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+
+.planet.earth {
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle at 30% 30%, #4b6cb7, #182848);
+  top: 70%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+}
+
+.planet.mars {
+  width: 12px;
+  height: 12px;
+  background-color: #c1440e;
+  top: 20%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.planet.jupiter {
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(45deg, #cd853f, #8b4513);
+  top: 80%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+}
+
+.planet.saturn {
+  width: 22px;
+  height: 22px;
+  background-color: #b8860b;
+  top: 15%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+/* Element Cards */
+.element-card {
+  background-color: rgba(20, 20, 50, 0.7);
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.element-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #ffa500, #ff4500);
+}
+
+.element-title {
+  font-size: 1.5rem;
+  color: #f0f0f0;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.element-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: #ffa500;
+  color: #1a1a3a;
+  border-radius: 50%;
+  margin-right: 15px;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.element-description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: #d0d0d0;
+}
+
+/* Houses Card */
+.houses-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+.houses-list li {
+  margin-bottom: 15px;
+  padding-left: 20px;
+  position: relative;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.houses-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #ffa500;
+  font-size: 1.2rem;
+}
+
+.house-number {
+  font-weight: 600;
+  color: #f0f0f0;
+}
+
+.house-name {
+  color: #ffa500;
+  font-style: italic;
+  margin-left: 5px;
+}
+
+.houses-illustration {
+  height: 150px;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMjQwIj48Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMjAiIHI9IjEwMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwxNjUsMCwwLjMpIiBzdHJva2Utd2lkdGg9IjIiLz48Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMjAiIHI9IjgwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDE2NSwwLDAuMikiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjEyMCIgY3k9IjEyMCIgcj0iNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMTY1LDAsMC4yKSIgc3Ryb2tlLXdpZHRoPSIyIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTIwIiByPSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwxNjUsMCwwLjIpIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMjAiIHkxPSIxMjAiIHgyPSIyMjAiIHkyPSIxMjAiIHN0cm9rZT0icmdiYSgyNTUsMTY1LDAsMC4yKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjEyMCIgeTE9IjIwIiB4Mj0iMTIwIiB5Mj0iMjIwIiBzdHJva2U9InJnYmEoMjU1LDE2NSwwLDAuMikiIHN0cm9rZS13aWR0aD0iMSIvPjxsaW5lIHgxPSI0OCIgeTE9IjQ4IiB4Mj0iMTkyIiB5Mj0iMTkyIiBzdHJva2U9InJnYmEoMjU1LDE2NSwwLDAuMikiIHN0cm9rZS13aWR0aD0iMSIvPjxsaW5lIHgxPSI0OCIgeTE9IjE5MiIgeDI9IjE5MiIgeTI9IjQ4IiBzdHJva2U9InJnYmEoMjU1LDE2NSwwLDAuMikiIHN0cm9rZS13aWR0aD0iMSIvPjx0ZXh0IHg9IjEyMCIgeT0iMzAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYmEoMjU1LDE2NSwwLDAuNikiIGZvbnQtc2l6ZT0iMTIiPjEwPC90ZXh0Pjx0ZXh0IHg9IjIxMCIgeT0iMTIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJyZ2JhKDI1NSwxNjUsMCwwLjYpIiBmb250LXNpemU9IjEyIj4xPC90ZXh0Pjx0ZXh0IHg9IjEyMCIgeT0iMjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJyZ2JhKDI1NSwxNjUsMCwwLjYpIiBmb250LXNpemU9IjEyIj40PC90ZXh0Pjx0ZXh0IHg9IjMwIiB5PSIxMjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYmEoMjU1LDE2NSwwLDAuNikiIGZvbnQtc2l6ZT0iMTIiPjc8L3RleHQ+PHRleHQgeD0iMTgwIiB5PSI2MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiYSgyNTUsMTY1LDAsMC42KSIgZm9udC1zaXplPSIxMiI+MTE8L3RleHQ+PHRleHQgeD0iMTgwIiB5PSIxODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYmEoMjU1LDE2NSwwLDAuNikiIGZvbnQtc2l6ZT0iMTIiPjI8L3RleHQ+PHRleHQgeD0iNjAiIHk9IjE4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiYSgyNTUsMTY1LDAsMC42KSIgZm9udC1zaXplPSIxMiI+NTwvdGV4dD48dGV4dCB4PSI2MCIgeT0iNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYmEoMjU1LDE2NSwwLDAuNikiIGZvbnQtc2l6ZT0iMTIiPjg8L3RleHQ+PHRleHQgeD0iMTIwIiB5PSIxMjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYmEoMjU1LDE2NSwwLDAuOCkiIGZvbnQtc2l6ZT0iMTQiPkJpcnRoIENoYXJ0PC90ZXh0Pjwvc3ZnPg==');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 20px;
+  opacity: 0.7;
+}
+
+/* Planets Card */
+.planets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.planet-item {
+  background-color: rgba(30, 30, 60, 0.5);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.planet-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: rgba(40, 40, 80, 0.5);
+}
+
+.planet-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  background-size: cover;
+  background-position: center;
+}
+
+.sun-icon {
+  background: radial-gradient(circle at 30% 30%, #ffdb58, #ff8c00);
+  box-shadow: 0 0 15px rgba(255, 165, 0, 0.5);
+}
+
+.moon-icon {
+  background: radial-gradient(circle at 30% 30%, #f5f5f5, #c0c0c0);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.mars-icon {
+  background: radial-gradient(circle at 30% 30%, #ff6347, #8b0000);
+  box-shadow: 0 0 15px rgba(255, 99, 71, 0.5);
+}
+
+.mercury-icon {
+  background: radial-gradient(circle at 30% 30%, #e6e6fa, #b0c4de);
+  box-shadow: 0 0 15px rgba(176, 196, 222, 0.5);
+}
+
+.jupiter-icon {
+  background: radial-gradient(circle at 30% 30%, #f4a460, #8b4513);
+  box-shadow: 0 0 15px rgba(244, 164, 96, 0.5);
+}
+
+.venus-icon {
+  background: radial-gradient(circle at 30% 30%, #ffdab9, #d2691e);
+  box-shadow: 0 0 15px rgba(255, 218, 185, 0.5);
+}
+
+.saturn-icon {
+  background: radial-gradient(circle at 30% 30%, #daa520, #8b6914);
+  box-shadow: 0 0 15px rgba(218, 165, 32, 0.5);
+}
+
+.planet-name {
+  font-size: 1.2rem;
+  color: #f0f0f0;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.planet-careers {
+  color: #d0d0d0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Zodiac Card */
+.zodiac-table-container {
+  overflow-x: auto;
+  margin-top: 30px;
+}
+
+.zodiac-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #e0e0e0;
+}
+
+.zodiac-table th {
+  background-color: rgba(255, 165, 0, 0.2);
+  color: #ffa500;
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(255, 165, 0, 0.5);
+}
+
+.zodiac-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  vertical-align: middle;
+}
+
+.zodiac-table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.zodiac-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+/* Zodiac sign icons using emoji characters as background */
+.zodiac-icon.aries::before {
+  content: "♈";
+  color: #ffa500;
+  font-size: 20px;
+}
+
+.zodiac-icon.taurus::before {
+  content: "♉";
+  color: #ffa500;
+  font-size: 20px;
+}
+
+.zodiac-icon.gemini::before {
+  content: "♊";
+  color: #ffa500;
+  font-size: 20px;
+}
+
+.zodiac-icon.cancer::before {
+  content: "♋";
+  color: #ffa500;
+  font-size: 20px;
+}
+
+.zodiac-icon.leo::before {
+  content: "♌";
+  color: #ffa500;
+  font-size: 20px;
+}
+
+.zodiac-icon.virgo::before {
+  content: "♍";
+  color: #ffa500;
+  font-size: 20px;
+}
+
+.zodiac-icon.libra::before {
+  content: "♎";
+  color: #ffa500;
+  font-size: 20px;
+}
+
+.zodiac-icon.scorpio::before {
+  content: "♏";
+  color: #ffa500;
+  font-size: 20px;
+}
+
+.zodiac-icon.sagittarius::before {
+  content: "♐";
+  color: #ffa500;
+  font-size: 20px;
+}
+
+.zodiac-icon.capricorn::before {
+  content: "♑";
+  color: #ffa500;
+  font-size: 20px;
+}
+
+.zodiac-icon.aquarius::before {
+  content: "♒";
+  color: #ffa500;
+  font-size: 20px;
+}
+
+.zodiac-icon.pisces::before {
+  content: "♓";
+  color: #ffa500;
+  font-size: 20px;
+}
+
+/* Benefits Section */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.benefit-card {
+  background-color: rgba(30, 30, 60, 0.5);
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: rgba(40, 40, 80, 0.5);
+}
+
+.benefit-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffa500, #ff4500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(255, 165, 0, 0.3);
+}
+
+.benefit-icon i {
+  font-size: 30px;
+  color: #fff;
+}
+
+.benefit-title {
+  font-size: 1.2rem;
+  color: #f0f0f0;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.benefit-description {
+  color: #d0d0d0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, rgba(30, 30, 60, 0.8), rgba(50, 30, 80, 0.8));
+  border-radius: 10px;
+  padding: 40px;
+  margin-top: 60px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMjQwIj48Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMjAiIHI9IjEwMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwxNjUsMCwwLjEpIiBzdHJva2Utd2lkdGg9IjIiLz48Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMjAiIHI9IjgwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDE2NSwwLDAuMSkiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjEyMCIgY3k9IjEyMCIgcj0iNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMTY1LDAsMC4xKSIgc3Ryb2tlLXdpZHRoPSIyIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTIwIiByPSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwxNjUsMCwwLjEpIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=');
+  background-repeat: repeat;
+  background-size: 300px;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.cta-heading {
+  font-size: 1.8rem;
+  color: #f5f5f5;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.cta-description {
+  font-size: 1.1rem;
+  color: #d0d0d0;
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button i {
+  margin-right: 10px;
+}
+
+.cta-button.primary {
+  background: linear-gradient(90deg, #ffa500, #ff4500);
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(255, 165, 0, 0.3);
+}
+
+.cta-button.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 165, 0, 0.4);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: #f0f0f0;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.cta-button.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px);
+}
+
+.cta-decoration {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 150px;
+  height: 150px;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMjQwIj48Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMjAiIHI9IjEwMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwxNjUsMCwwLjIpIiBzdHJva2Utd2lkdGg9IjIiLz48Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMjAiIHI9IjgwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDE2NSwwLDAuMikiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjEyMCIgY3k9IjEyMCIgcj0iNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMTY1LDAsMC4yKSIgc3Ryb2tlLXdpZHRoPSIyIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTIwIiByPSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwxNjUsMCwwLjIpIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMjAiIHkxPSIxMjAiIHgyPSIyMjAiIHkyPSIxMjAiIHN0cm9rZT0icmdiYSgyNTUsMTY1LDAsMC4yKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjEyMCIgeTE9IjIwIiB4Mj0iMTIwIiB5Mj0iMjIwIiBzdHJva2U9InJnYmEoMjU1LDE2NSwwLDAuMikiIHN0cm9rZS13aWR0aD0iMSIvPjxsaW5lIHgxPSI0OCIgeTE9IjQ4IiB4Mj0iMTkyIiB5Mj0iMTkyIiBzdHJva2U9InJnYmEoMjU1LDE2NSwwLDAuMikiIHN0cm9rZS13aWR0aD0iMSIvPjxsaW5lIHgxPSI0OCIgeTE9IjE5MiIgeDI9IjE5MiIgeTI9IjQ4IiBzdHJva2U9InJnYmEoMjU1LDE2NSwwLDAuMikiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  transform: rotate(30deg);
+  z-index: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .main-heading {
+    font-size: 2rem;
+  }
+  
+  .heading-subtitle {
+    font-size: 1rem;
+  }
+  
+  .cosmic-decoration {
+    width: 100px;
+  }
+  
+  .planets-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .career-astrology-content {
+    padding-top: 120px;
+  }
+  
+  .career-astrology-content .career-astrology-container {
+    padding: 30px 20px;
+  }
+  
+  .main-heading {
+    font-size: 1.8rem;
+    padding: 0 10px;
+  }
+  
+  .main-heading i {
+    font-size: 1.6rem;
+  }
+  
+  .heading-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .section-heading {
+    font-size: 1.5rem;
+  }
+  
+  .cosmic-decoration {
+    display: none;
+  }
+  
+  .element-title {
+    font-size: 1.3rem;
+  }
+  
+  .planets-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-heading {
+    font-size: 1.5rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .cta-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-heading {
+    font-size: 1.5rem;
+  }
+  
+  .element-card {
+    padding: 20px 15px;
+  }
+  
+  .element-title {
+    font-size: 1.2rem;
+  }
+  
+  .planet-item {
+    padding: 15px;
+  }
+  
+  .benefit-card {
+    padding: 20px 15px;
+  }
+  
+  .cta-section {
+    padding: 30px 20px;
+  }
+}

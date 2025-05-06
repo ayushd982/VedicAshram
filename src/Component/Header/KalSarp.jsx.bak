@@ -1,0 +1,215 @@
+import React from 'react';
+import Navbar from './Navbar';
+import Footer from '../Footer/Footer';
+import { useLanguage } from '../../context/LanguageContext';
+import "./KalSarp.css";
+
+const KalSarp = () => {
+  const { language, changeLanguage } = useLanguage();
+
+  const switchToHindi = () => {
+    changeLanguage(language === 'english' ? 'hindi' : 'english');
+  };
+
+  return (
+    <div className="kalsarp-page">
+      <header className="header">
+        <h1>🕉️ Kaal Sarp Dosh Nivaran Yagya</h1>
+        <button onClick={switchToHindi} className="hindi-button">
+          {language === 'english' ? 'हिंदी' : 'English'}
+        </button>
+      </header>
+      <Navbar />
+      <main className="main-content">
+        {language === "english" ? (
+          <div className="content-container">
+            <div className="main-heading">
+              <h2>Release Yourself from Karmic Bondage</h2>
+              <div className="subheading">
+                <p>Neutralize the effects of Kaal Sarp Dosh and restore harmony, peace, and prosperity in life through powerful Vedic rituals.</p>
+              </div>
+            </div>
+
+            <div className="introduction">
+              <p>Kaal Sarp Dosh occurs in a horoscope when all planets are hemmed between Rahu and Ketu, the shadow planets of karma and illusion. This astrological alignment often causes delays, obstacles, mental stress, financial instability, and health issues.</p>
+              <p>The Kaal Sarp Dosh Nivaran Yagya is a sacred Vedic remedy performed to appease Rahu and Ketu, pacify ancestral karmas, and bring relief from continuous struggles. Performed at powerful spiritual sites like Trimbakeshwar (Nashik) or Ujjain, this Yagya is a highly effective way to gain divine protection and new direction.</p>
+            </div>
+
+            <div className="section symptoms-section">
+              <h3>❗ Symptoms of Kaal Sarp Dosh</h3>
+              <ul>
+                <li>Repeated failures despite hard work</li>
+                <li>Unexplained fear, anxiety, or nightmares</li>
+                <li>Delay in marriage or childbirth</li>
+                <li>Legal issues, family disputes</li>
+                <li>Obstacles in business, career, or education</li>
+                <li>Signs of Pitra Dosh or ancestral karma</li>
+              </ul>
+            </div>
+
+            <div className="section benefits-section">
+              <h3>🔥 Purpose & Benefits of the Yagya</h3>
+              <div className="benefits-grid">
+                <div className="benefit-item">
+                  <div className="benefit-icon snake-icon">🐍</div>
+                  <p>Neutralizes negative effects of Rahu-Ketu</p>
+                </div>
+                <div className="benefit-item">
+                  <div className="benefit-icon yantra-icon">🕉️</div>
+                  <p>Frees from karmic and ancestral blockages</p>
+                </div>
+                <div className="benefit-item">
+                  <div className="benefit-icon brain-icon">🧠</div>
+                  <p>Improves mental peace, finances, and health</p>
+                </div>
+                <div className="benefit-item">
+                  <div className="benefit-icon shield-icon">🛡️</div>
+                  <p>Protects against black magic or psychic attacks</p>
+                </div>
+                <div className="benefit-item">
+                  <div className="benefit-icon temple-icon">🏯</div>
+                  <p>Promotes success, clarity, and spiritual growth</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="section days-section">
+              <h3>📅 Best Days to Perform the Yagya</h3>
+              <ul>
+                <li>During Amavasya (New Moon) or Nag Panchami</li>
+                <li>On Shravan Maas, Rahu Kalam, or Astrologically suggested muhurat</li>
+                <li>Performed ideally at sacred places like Trimbakeshwar, Haridwar, or Ujjain</li>
+              </ul>
+            </div>
+
+            <div className="section rituals-section">
+              <h3>🕯️ Rituals Performed in Kaal Sarp Dosh Nivaran Yagya</h3>
+              <ul>
+                <li>Ganesh Puja and Sankalp</li>
+                <li>Kal Sarp Yog Shanti Path</li>
+                <li>Rahu and Ketu Graha Shanti</li>
+                <li>Abhishekam of Shivling and Naag Devta</li>
+                <li>Pind Daan and Tarpan for ancestors</li>
+                <li>Havan with powerful mantras and Naag Bali</li>
+              </ul>
+            </div>
+
+            <div className="section who-section">
+              <h3>📿 Who Should Perform This Yagya?</h3>
+              <ul>
+                <li>Anyone with Kaal Sarp Dosh in Kundli</li>
+                <li>Facing repeated failures or misfortunes</li>
+                <li>Spiritual seekers blocked on their path</li>
+                <li>Families experiencing ancestral disturbances</li>
+              </ul>
+            </div>
+
+            <div className="section booking-section">
+              <h3>🙏 Book Your Personalized Kaal Sarp Dosh Nivaran Yagya</h3>
+              <p>Our team of certified Vedic priests performs this transformative Yagya with precise rituals based on your birth chart. Release yourself from past karmas and step into a new phase of positivity and divine protection.</p>
+              <div className="cta-button">
+                <button>Book Kaal Sarp Dosh Yagya Now</button>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="content-container">
+            <div className="main-heading">
+              <h2>अपने कर्म बंधन से मुक्ति पाएं</h2>
+              <div className="subheading">
+                <p>शक्तिशाली वैदिक अनुष्ठानों के माध्यम से कालसर्प दोष के प्रभावों को शांत करें और जीवन में सद्भाव, शांति और समृद्धि को पुनर्स्थापित करें।</p>
+              </div>
+            </div>
+
+            <div className="introduction">
+              <p>जब सभी ग्रह राहु और केतु के बीच आ जाते हैं तो कुंडली में कालसर्प दोष बनता है। यह ज्योतिषीय स्थिति अक्सर देरी, बाधाओं, मानसिक तनाव, वित्तीय अस्थिरता और स्वास्थ्य समस्याओं का कारण बनती है।</p>
+              <p>कालसर्प दोष निवारण यज्ञ राहु और केतु को शांत करने, पूर्वजों के कर्मों को शांत करने और निरंतर संघर्षों से राहत लाने के लिए किया जाने वाला एक पवित्र वैदिक उपाय है। त्र्यंबकेश्वर (नासिक) या उज्जैन जैसे शक्तिशाली आध्यात्मिक स्थलों पर किया गया, यह यज्ञ दैवीय सुरक्षा और नई दिशा प्राप्त करने का एक अत्यधिक प्रभावी तरीका है।</p>
+            </div>
+
+            <div className="section symptoms-section">
+              <h3>❗ कालसर्प दोष के लक्षण</h3>
+              <ul>
+                <li>कड़ी मेहनत के बावजूद असफलता</li>
+                <li>अनजाना भय, चिंता या बुरे सपने</li>
+                <li>विवाह या संतान में देरी</li>
+                <li>कानूनी विवाद, पारिवारिक झगड़े</li>
+                <li>व्यवसाय या करियर में बाधाएं</li>
+                <li>पितृ दोष या पूर्वजों के कर्म का संकेत</li>
+              </ul>
+            </div>
+
+            <div className="section benefits-section">
+              <h3>🔥 यज्ञ के उद्देश्य और लाभ</h3>
+              <div className="benefits-grid">
+                <div className="benefit-item">
+                  <div className="benefit-icon snake-icon">🐍</div>
+                  <p>राहु-केतु के दुष्प्रभाव को शांत करना</p>
+                </div>
+                <div className="benefit-item">
+                  <div className="benefit-icon yantra-icon">🕉️</div>
+                  <p>पूर्वजों के दोषों से मुक्ति</p>
+                </div>
+                <div className="benefit-item">
+                  <div className="benefit-icon brain-icon">🧠</div>
+                  <p>मानसिक शांति, वित्तीय स्थिति में सुधार</p>
+                </div>
+                <div className="benefit-item">
+                  <div className="benefit-icon shield-icon">🛡️</div>
+                  <p>नकारात्मक शक्तियों से रक्षा</p>
+                </div>
+                <div className="benefit-item">
+                  <div className="benefit-icon temple-icon">🏯</div>
+                  <p>सफलता और स्पष्टता को बढ़ावा देना</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="section days-section">
+              <h3>📅 यज्ञ के शुभ समय</h3>
+              <ul>
+                <li>अमावस्या या नाग पंचमी के दिन</li>
+                <li>श्रावण मास, राहु काल, या ज्योतिषीय सुझाए गए मुहूर्त पर</li>
+                <li>त्र्यंबकेश्वर, हरिद्वार या उज्जैन जैसे पवित्र स्थानों पर विशेष फलदायक</li>
+              </ul>
+            </div>
+
+            <div className="section rituals-section">
+              <h3>🕯️ कालसर्प दोष निवारण यज्ञ के विधि</h3>
+              <ul>
+                <li>गणेश पूजा और संकल्प</li>
+                <li>कालसर्प योग शांति पाठ</li>
+                <li>राहु और केतु ग्रह शांति</li>
+                <li>शिवलिंग और नागदेवता का अभिषेक</li>
+                <li>पिंड दान और तर्पण</li>
+                <li>शक्तिशाली मंत्रों और नाग बलि के साथ हवन</li>
+              </ul>
+            </div>
+
+            <div className="section who-section">
+              <h3>📿 कौन करवा सकता है यह यज्ञ?</h3>
+              <ul>
+                <li>जिनकी कुंडली में कालसर्प दोष हो</li>
+                <li>लगातार असफलता या विघ्न हो रहे हों</li>
+                <li>आध्यात्मिक साधना में बाधा आ रही हो</li>
+                <li>पारिवारिक पितृ दोष के प्रभाव से ग्रस्त हों</li>
+              </ul>
+            </div>
+
+            <div className="section booking-section">
+              <h3>🙏 अपना व्यक्तिगत कालसर्प दोष निवारण यज्ञ बुक करें</h3>
+              <p>हमारी प्रमाणित वैदिक पुरोहितों की टीम आपकी जन्म कुंडली के आधार पर सटीक अनुष्ठानों के साथ इस परिवर्तनकारी यज्ञ को करती है। अपने पिछले कर्मों से मुक्त हों और सकारात्मकता और दैवीय सुरक्षा के नए चरण में प्रवेश करें।</p>
+              <div className="cta-button">
+                <button>अब अपना कालसर्प दोष यज्ञ बुक करें</button>
+              </div>
+            </div>
+          </div>
+        )}
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default KalSarp;
+

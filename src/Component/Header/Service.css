@@ -1,0 +1,198 @@
+/* Service Page Styles */
+.service-page {
+  min-height: 100vh;
+  background-color: #f9f9f9;
+}
+
+/* Add gap after navbar */
+.service-content {
+  padding-top: 30px; /* Reduced padding since header is now static */
+  padding-bottom: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.service-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.service-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Service Rows */
+.service-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 20px; /* Use gap for even spacing */
+}
+
+/* Service Boxes */
+.service-box {
+  width: 270px; /* Fixed width for consistent sizing */
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 0; /* Remove margin-bottom as we're using gap */
+  flex: 0 0 270px; /* Fixed width with flex-basis */
+  display: flex; /* Use flexbox for internal alignment */
+  flex-direction: column; /* Stack children vertically */
+}
+
+.service-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Add a subtle border to make the boxes stand out more */
+.service-box {
+  border: 1px solid rgba(106, 13, 173, 0.1);
+}
+
+.service-box a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Make sure the link takes up the full height of the box */
+}
+
+.service-image-container {
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+  background-color: #6a0dad; /* Violet background for image containers */
+  flex: 1; /* Allow it to grow to fill available space */
+  display: flex; /* Use flexbox for centering */
+  align-items: center;
+  justify-content: center;
+}
+
+.service-text-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.5s ease;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to bottom, #6a0dad, #8a2be2);
+}
+
+.service-icon {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.service-box:hover .service-text-image {
+  transform: scale(1.1);
+  background-color: #8a2be2; /* Slightly lighter violet on hover */
+}
+
+.service-box-title {
+  padding: 20px 15px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  background-color: white;
+  border-top: 3px solid #6a0dad; /* Violet border */
+  position: relative;
+  transition: all 0.3s ease;
+  height: 70px; /* Fixed height for title area */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-box:hover .service-box-title {
+  color: #6a0dad;
+  background-color: #f9f5ff;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .service-row {
+    justify-content: center;
+  }
+
+  .service-box {
+    /* Keep the same width on larger screens */
+    width: 270px;
+    flex: 0 0 270px;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-box {
+    width: 250px;
+    flex: 0 0 250px;
+  }
+
+  .service-title {
+    font-size: 2rem;
+  }
+
+  .service-box-title {
+    height: 80px; /* Slightly taller for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .service-box {
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 320px; /* Limit max width on small screens */
+  }
+
+  .service-title {
+    font-size: 1.8rem;
+  }
+
+  .service-description {
+    font-size: 1rem;
+  }
+
+  .service-box-title {
+    height: auto; /* Auto height on very small screens */
+    min-height: 60px;
+  }
+}

@@ -1,0 +1,435 @@
+/* Numerology.css */
+
+.numerology-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f8ff 0%, #f5f0ff 50%, #fff0f5 100%);
+  background-attachment: fixed;
+  position: relative;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 1; /* Lower z-index to ensure navbar dropdowns appear above */
+}
+
+/* Ensure the footer is visible */
+.numerology-page .site-footer {
+  position: relative;
+  z-index: 2;
+  margin-top: 0;
+  width: 100%;
+  display: block;
+  clear: both;
+}
+
+.numerology-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://i.imgur.com/JZcIEBa.png');
+  background-repeat: repeat;
+  background-size: 300px;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.numerology-content {
+  flex: 1;
+  padding-top: 150px; /* Further increased space after navbar */
+  padding-bottom: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.numerology-content .numerology-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background-image: url('https://i.imgur.com/8XLTfGR.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.05;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+.main-heading {
+  font-size: 2.5rem;
+  color: #000;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.main-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, #9370DB, #6A5ACD, #9370DB);
+  border-radius: 3px;
+}
+
+.intro-paragraph {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 40px;
+  text-align: justify;
+}
+
+.section-divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(147, 112, 219, 0.5), transparent);
+  margin: 40px 0;
+}
+
+.section-heading {
+  font-size: 2rem;
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #9370DB;
+  border-radius: 3px;
+}
+
+.concept-section {
+  margin-bottom: 30px;
+  padding-left: 20px;
+  border-left: 3px solid rgba(147, 112, 219, 0.3);
+}
+
+.concept-title {
+  font-size: 1.5rem;
+  color: #000;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.concept-description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.concept-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.concept-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.concept-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #9370DB;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.number-type {
+  margin-bottom: 25px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.number-type:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(147, 112, 219, 0.15);
+}
+
+.number-title {
+  font-size: 1.3rem;
+  color: #000;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.number-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.example-box {
+  background-color: rgba(147, 112, 219, 0.1);
+  border-left: 3px solid #9370DB;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 0 5px 5px 0;
+}
+
+.example-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #6A5ACD;
+}
+
+.example-content {
+  line-height: 1.6;
+}
+
+/* Numbers Table Styling */
+.numbers-table {
+  width: 100%;
+  margin: 30px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.table-header {
+  display: flex;
+  background: linear-gradient(135deg, #9370DB, #6A5ACD);
+  color: white;
+  font-weight: 600;
+  padding: 15px 20px;
+}
+
+.number-column {
+  width: 20%;
+  text-align: center;
+}
+
+.characteristics-column {
+  width: 80%;
+  text-align: left;
+}
+
+.table-row {
+  display: flex;
+  padding: 15px 20px;
+  background-color: white;
+  transition: background-color 0.3s ease;
+}
+
+.table-row:hover {
+  background-color: rgba(147, 112, 219, 0.05);
+}
+
+.number-cell {
+  width: 20%;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #6A5ACD;
+}
+
+.characteristics-cell {
+  width: 80%;
+  text-align: left;
+}
+
+.row-divider {
+  margin: 0;
+  border: 0;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Examples Section Styling */
+.example-section {
+  margin-bottom: 40px;
+  padding: 25px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.example-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #9370DB, #6A5ACD);
+}
+
+.example-heading {
+  font-size: 1.4rem;
+  color: #000;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.example-description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.example-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.example-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.example-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #9370DB;
+  font-weight: bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .numerology-content {
+    padding-top: 100px;
+  }
+  
+  .main-heading {
+    font-size: 2rem;
+  }
+  
+  .section-heading {
+    font-size: 1.7rem;
+  }
+  
+  .concept-title, .example-heading {
+    font-size: 1.3rem;
+  }
+  
+  .number-title {
+    font-size: 1.2rem;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+  
+  .table-header, .table-row {
+    padding: 10px;
+  }
+  
+  .number-cell {
+    font-size: 1rem;
+  }
+}
+
+/* Animation for page elements */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-heading, .intro-paragraph, .section-heading, .concept-section, 
+.number-type, .numbers-table, .example-section {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.concept-section {
+  animation-delay: 0.2s;
+}
+
+.number-type:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.number-type:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.number-type:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.number-type:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.number-type:nth-child(5) {
+  animation-delay: 0.7s;
+}
+
+.numbers-table {
+  animation-delay: 0.8s;
+}
+
+.example-section:nth-child(1) {
+  animation-delay: 0.9s;
+}
+
+.example-section:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.example-section:nth-child(3) {
+  animation-delay: 1.1s;
+}
+
+/* Decorative number elements */
+.container::after {
+  content: '1 2 3 4 5 6 7 8 9';
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  font-size: 0.8rem;
+  color: rgba(147, 112, 219, 0.2);
+  letter-spacing: 5px;
+  font-weight: bold;
+}

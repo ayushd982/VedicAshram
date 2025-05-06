@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="60" viewBox="0 0 200 60">
+  <style>
+    .logo-text { font-family: Arial, sans-serif; font-weight: bold; }
+    .vedic { font-size: 24px; fill: #6a0dad; }
+    .ashram { font-size: 18px; fill: #f39c12; }
+    .om { font-size: 32px; fill: #6a0dad; }
+  </style>
+  
+  <!-- Om Symbol -->
+  <text x="20" y="40" class="om">ॐ</text>
+  
+  <!-- Text -->
+  <text x="60" y="30" class="logo-text vedic">VEDIC</text>
+  <text x="60" y="50" class="logo-text ashram">ASHRAM</text>
+  
+  <!-- Decorative Line -->
+  <path d="M60 35 H 180" stroke="#6a0dad" stroke-width="1" stroke-dasharray="2,2" />
+</svg>

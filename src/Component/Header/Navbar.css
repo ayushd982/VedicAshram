@@ -1,0 +1,1390 @@
+/* Top Bar Styles */
+.top-bar {
+  background-color: #6a0dad; /* Violet color */
+  color: white;
+  padding: 10px 0;
+  border-radius: 0 0 10px 10px;
+  z-index: 1001;
+  position: relative;
+}
+
+/* Hide mobile menu toggle on desktop */
+@media (min-width: 769px) {
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+  
+  .nav-links {
+    flex: 1;
+    display: flex !important;
+    justify-content: center;
+  }
+  
+  /* Desktop dropdown styles */
+  .dropdown-menu {
+    width: 250px;
+    max-height: none;
+    overflow: visible;
+  }
+  
+  /* Ensure dropdown menus are visible on hover for desktop */
+  .dropdown-menu-item:hover .dropdown-menu {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+/* Mobile menu styles */
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block !important;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #FFD700;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    z-index: 1010;
+    outline: none;
+  }
+  
+  .nav-links {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0D1B2A;
+    z-index: 1001;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  
+  .nav-links.mobile-menu-open {
+    display: flex !important;
+    flex-direction: column;
+    animation: slideDown 0.3s ease-in-out;
+    max-height: 80vh;
+    overflow-y: auto;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    padding-bottom: 20px; /* Add some padding at the bottom */
+    z-index: 1000;
+  }
+  
+  /* Ensure language selector is visible in mobile menu */
+  .nav-links.mobile-menu-open .dropdown-menu-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  /* Specific styling for language menu in mobile view */
+  .language-menu-item {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  
+  .language-menu-item .dropdown-menu {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Always show language dropdown on mobile */
+  .nav-links.mobile-menu-open .language-menu-item .dropdown-menu {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .nav-links ul {
+    flex-direction: column !important;
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    list-style-type: none;
+  }
+  
+  .nav-links li {
+    margin: 0 !important;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+  
+  .nav-links li a {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFD700 !important;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%;
+  }
+  
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Spacer between top bar and main header */
+.navbar-spacer {
+  height: 20px; /* Adjust this value to increase or decrease the space */
+  background: linear-gradient(to bottom, rgba(106, 13, 173, 0.1), transparent);
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 999; /* Just below the navbar z-index */
+}
+
+/* Animation for mobile menu */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dropdown arrow rotation */
+.rotate-down {
+  transform: rotate(90deg) !important;
+}
+
+/* Submenu arrow rotation when open */
+.submenu-arrow.open {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+/* Dropdown arrow positioning */
+.dropdown-arrow, .submenu-arrow {
+  margin-left: 8px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-size: 12px;
+  color: #FFD700;
+}
+
+.top-bar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+/* Phone Number Styles */
+.phone-number {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.phone-icon {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+/* Middle Section Styles */
+.top-bar-middle {
+  display: flex;
+  gap: 20px;
+}
+
+/* Social Media Icons Styles */
+.social-media-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.social-icon-link {
+  color: white;
+  transition: color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  padding: 6px;
+}
+
+.social-icon {
+  font-size: 18px;
+  display: block;
+}
+
+.social-icon-link:hover {
+  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.facebook-icon:hover {
+  color: #4267B2;
+}
+
+.instagram-icon:hover {
+  color: #E1306C;
+}
+
+.twitter-icon:hover {
+  color: #1DA1F2;
+}
+
+.youtube-icon:hover {
+  color: #FF0000;
+}
+
+.consult-dropdown, .mythology-dropdown {
+  position: relative;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.consult-text, .mythology-text {
+  font-weight: 500;
+}
+
+.consult-menu, .mythology-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 180px;
+  z-index: 1002;
+  overflow: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.mythology-menu {
+  width: 200px;
+}
+
+.consult-menu a, .mythology-menu a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.consult-menu a:hover, .mythology-menu a:hover {
+  background-color: #f5f5f5;
+  color: #6a0dad;
+}
+
+
+
+/* Main Header Styles */
+.navbar-header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+  position: relative; /* Changed to relative to create stacking context */
+  width: 100%;
+  z-index: 1000;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* SVG Logo Styles */
+.logo-svg {
+  overflow: visible;
+}
+
+.om-symbol {
+  font-size: 32px;
+  fill: #6a0dad;
+  font-family: Arial, sans-serif;
+}
+
+.vedic-text-svg {
+  font-size: 24px;
+  fill: #6a0dad;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+.ashram-text-svg {
+  font-size: 18px;
+  fill: #f39c12;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+.nav-links {
+  position: relative;
+  z-index: 1001;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.nav-links li {
+  margin-left: 10px;
+  list-style-type: none;
+  white-space: nowrap;
+}
+
+.nav-links a, .nav-links Link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s ease;
+  display: block;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.nav-links a:hover, .nav-links Link:hover {
+  color: #f39c12;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  /* Top Bar Responsive Styles */
+  .top-bar-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Remove any bullet points */
+  ul, li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .top-bar-middle {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .social-media-icons {
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+  .consult-menu, .mythology-menu {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Navbar Responsive Styles */
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .logo {
+    margin-bottom: 0;
+  }
+
+  /* Mobile menu toggle button */
+  .mobile-menu-toggle {
+    display: block !important;
+    background: transparent;
+    border: none;
+    color: #FFD700;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1002;
+    transition: transform 0.3s ease;
+  }
+  
+  .mobile-menu-toggle:hover {
+    transform: scale(1.1);
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+
+  .nav-links.mobile-menu-open {
+    display: flex !important;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0D1B2A;
+    padding: 10px 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+    animation: slideDown 0.3s ease-in-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .nav-links li {
+    margin: 8px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+    padding-bottom: 8px;
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .dropdown-menu-item {
+    width: 100%;
+  }
+
+  .nav-link, .services-btn {
+    width: 100%;
+    display: block;
+    padding: 10px 0;
+    font-size: 16px;
+  }
+
+  .language-selector, .services-selector {
+    margin-top: 5px;
+    width: 100%;
+  }
+
+  .dropdown-menu, .language-dropdown {
+    position: static; /* Changed from relative to static */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(8, 16, 30, 0.98);
+    border-top: 1px solid rgba(255, 215, 0, 0.05);
+  }
+
+  .services-dropdown {
+    position: static; /* Changed from relative to static */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(13, 27, 42, 0.9);
+    display: block !important; /* Always show when parent is active */
+    max-height: none !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 1001 !important;
+    box-sizing: border-box;
+  }
+  
+  /* Show dropdown when active */
+  .services-dropdown.active,
+  .services-dropdown {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .services-dropdown .service-item,
+  .vedic-astrology-item,
+  .vastu-item,
+  .numerology-item,
+  .career-item,
+  .yagya-item,
+  .child-item,
+  .love-item {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid rgba(255, 215, 0, 0.1);
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .services-dropdown .service-item:last-child {
+    border-bottom: none;
+  }
+  
+  /* Style for dropdown items */
+  .services-dropdown a {
+    padding: 15px 30px !important; /* Indented to show hierarchy */
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFD700 !important;
+    font-size: 15px;
+    background-color: rgba(10, 20, 35, 0.95);
+    width: 100% !important;
+    box-sizing: border-box !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.05) !important;
+  }
+
+  .vedic-astrology-submenu, 
+  .vastu-submenu,
+  .numerology-submenu, 
+  .career-submenu,
+  .yagya-submenu,
+  .child-submenu,
+  .love-submenu,
+  .training-submenu {
+    position: static; /* Changed from relative to static */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(8, 16, 30, 0.95);
+    display: block !important; /* Always show when parent is active */
+    max-height: none !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 1002 !important;
+    box-sizing: border-box;
+    border-left: 2px solid rgba(255, 215, 0, 0.3); /* Add a visual indicator */
+    margin-left: 10px; /* Indent submenu */
+  }
+  
+  /* Show submenu when active */
+  .vedic-astrology-submenu.active, 
+  .vastu-submenu.active,
+  .numerology-submenu.active, 
+  .career-submenu.active,
+  .yagya-submenu.active,
+  .child-submenu.active,
+  .love-submenu.active,
+  .training-submenu.active,
+  .vedic-astrology-submenu, 
+  .vastu-submenu,
+  .numerology-submenu, 
+  .career-submenu,
+  .yagya-submenu,
+  .child-submenu,
+  .love-submenu,
+  .training-submenu {
+    display: block !important;
+    max-height: none !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* Make all dropdown links visible in mobile view */
+  .services-dropdown a, 
+  .vedic-astrology-submenu a, 
+  .vastu-submenu a,
+  .numerology-submenu a, 
+  .career-submenu a,
+  .yagya-submenu a,
+  .child-submenu a,
+  .love-submenu a,
+  .training-submenu a {
+    color: #FFD700 !important;
+    padding: 15px 40px !important; /* More indentation for submenu items */
+    display: block !important;
+    text-align: left !important;
+    border-top: 1px solid rgba(255, 215, 0, 0.05) !important;
+    font-size: 14px !important;
+    font-weight: normal !important;
+    background-color: rgba(8, 16, 30, 0.98);
+    width: 100% !important;
+    box-sizing: border-box !important;
+    white-space: normal !important; /* Allow text to wrap */
+    word-wrap: break-word !important; /* Break long words if needed */
+  }
+  
+  .services-dropdown a:hover, 
+  .vedic-astrology-submenu a:hover, 
+  .vastu-submenu a:hover,
+  .numerology-submenu a:hover, 
+  .career-submenu a:hover,
+  .yagya-submenu a:hover,
+  .child-submenu a:hover,
+  .love-submenu a:hover,
+  .training-submenu a:hover {
+    background-color: rgba(255, 215, 0, 0.05) !important;
+  }
+  
+  /* Dropdown toggle indicators */
+  .submenu-arrow, .dropdown-arrow {
+    position: absolute;
+    right: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Rotate arrow when dropdown is open */
+  .submenu-arrow.open, .dropdown-arrow.open {
+    transform: rotate(90deg);
+  }
+
+  /* For touch devices, make dropdowns stay visible longer */
+  .language-selector:hover .language-dropdown,
+  .services-selector:hover .services-dropdown,
+  .consult-dropdown:hover .consult-menu,
+  .mythology-dropdown:hover .mythology-menu {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .auth-option {
+    margin-left: 0;
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+  }
+
+  .auth-btn {
+    width: 80%;
+    max-width: 200px;
+    padding: 10px 15px !important;
+    font-size: 16px !important;
+  }
+
+  .auth-modal {
+    width: 90%;
+    padding: 20px;
+    margin: 0 15px;
+  }
+  
+  /* Language dropdown specific styles for mobile */
+  .dropdown-menu button, .language-dropdown button {
+    text-align: center !important;
+    padding: 12px 15px;
+    font-size: 16px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: #FFD700;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+  }
+  
+  .dropdown-menu button:hover, .language-dropdown button:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+  }
+  
+  .dropdown-menu button.active, .language-dropdown button.active {
+    background-color: rgba(255, 215, 0, 0.2);
+    font-weight: bold;
+  }
+}
+
+/* Sub-menu Styles (Common) */
+.vedic-astrology-item, .vastu-item, .numerology-item, .career-item, .yagya-item, .child-item, .love-item, .training-item {
+  position: relative;
+  cursor: pointer;
+}
+
+.service-with-arrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  color: #333;
+  transition: background-color 0.2s ease;
+  text-decoration: none; /* Added for Link component */
+  width: 100%; /* Ensure it takes full width */
+}
+
+.service-with-arrow:hover {
+  background-color: #f5f5f5;
+  color: #f39c12;
+}
+
+.training-item:hover .training-submenu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0); /* Move to correct position */
+}
+
+/* All submenus are now controlled by state */
+.vedic-astrology-submenu,
+.vastu-submenu,
+.numerology-submenu,
+.career-submenu,
+.yagya-submenu,
+.child-submenu,
+.love-submenu {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateX(0) !important;
+}
+
+/* Specific rule for Career sub-menu to ensure it works */
+.career-item:hover .career-submenu {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 1002 !important;
+}
+
+/* Dropdown menu styles for Training Program */
+.dropdown-menu-item {
+  position: relative;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 15px 20px;
+  color: #FFD700 !important;
+  font-weight: bold;
+  font-size: 15px;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-link:hover {
+  color: #f39c12;
+}
+
+.dropdown-arrow {
+  margin-left: 5px;
+  font-size: 10px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 250px; /* Increased width to fit longer menu items */
+  z-index: 1002;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  transform: translateY(-10px);
+  max-height: none;
+  overflow: visible;
+  display: block;
+}
+
+@media (min-width: 769px) {
+  .dropdown-menu-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    display: block;
+  }
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+  white-space: normal; /* Allow text to wrap */
+  word-wrap: break-word; /* Break long words if needed */
+}
+
+.dropdown-menu a:hover {
+  background-color: #f5f5f5;
+  color: #f39c12;
+}
+
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.main-link {
+  display: block;
+  padding: 12px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.main-link:hover {
+  background-color: #f5f5f5;
+  color: #f39c12;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 250px;
+  z-index: 1002;
+  padding-left: 5px;
+}
+
+.dropdown-container:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 12px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #f5f5f5;
+  color: #f39c12;
+}
+
+.submenu-arrow {
+  font-size: 10px;
+  margin-left: 5px;
+}
+
+.vedic-astrology-submenu, .vastu-submenu, .numerology-submenu, .career-submenu, .yagya-submenu, .child-submenu, .love-submenu, .training-submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 250px;
+  z-index: 10000; /* Increased z-index to ensure it appears above hero section */
+  overflow: auto; /* Changed from hidden to auto to allow scrolling for long menus */
+  max-height: 400px; /* Added max-height to enable scrolling for long menus */
+  transition: all 0.3s ease;
+  padding-left: 5px; /* Add padding to create a buffer zone */
+}
+
+.vedic-astrology-submenu a, .vastu-submenu a, .numerology-submenu a, .career-submenu a, .yagya-submenu a, .child-submenu a, .love-submenu a, .training-submenu a {
+  display: block;
+  padding: 12px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.vedic-astrology-submenu a:hover, .vastu-submenu a:hover, .numerology-submenu a:hover, .career-submenu a:hover, .yagya-submenu a:hover, .child-submenu a:hover, .love-submenu a:hover, .training-submenu a:hover {
+  background-color: #f5f5f5;
+  color: #f39c12;
+}
+
+/* Responsive styles for sub-menu */
+@media (max-width: 768px) {
+  .vedic-astrology-submenu, .vastu-submenu, .numerology-submenu, .career-submenu, .yagya-submenu, .child-submenu, .love-submenu, .training-submenu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    margin-left: 15px;
+    border-left: 2px solid #f39c12;
+    transform: none;
+    padding-left: 0;
+    max-height: none; /* Remove max-height on mobile */
+  }
+
+  .service-with-arrow {
+    padding: 10px 15px;
+  }
+
+  /* All submenus are now controlled by React state */
+  .vedic-astrology-submenu,
+  .vastu-submenu,
+  .numerology-submenu,
+  .career-submenu,
+  .yagya-submenu,
+  .child-submenu,
+  .love-submenu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  /* Make the parent item clickable on mobile */
+  .vedic-astrology-item, .vastu-item, .numerology-item, .career-item, .yagya-item, .child-item, .love-item, .dropdown-menu-item {
+    display: block;
+  }
+
+  /* Mobile styles for dropdown menu */
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    margin-left: 0;
+    border-left: none;
+    transform: none;
+    padding-left: 0;
+    max-height: none;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    overflow: visible;
+  }
+
+  .dropdown-menu-item:hover .dropdown-menu,
+  .dropdown-menu-item:active .dropdown-menu,
+  .dropdown-menu-item:focus .dropdown-menu,
+  .dropdown-menu-item .dropdown-menu,
+  .services-selector .services-dropdown,
+  .vedic-astrology-item .vedic-astrology-submenu,
+  .vastu-item .vastu-submenu,
+  .numerology-item .numerology-submenu,
+  .career-item .career-submenu,
+  .yagya-item .yagya-submenu,
+  .child-item .child-submenu,
+  .love-item .love-submenu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .nav-link {
+    padding: 10px 15px;
+  }
+}
+
+
+/* Language selector styles */
+.language-selector {
+  position: relative;
+  z-index: 2000; /* Ensure it's above other elements */
+}
+
+.language-btn {
+  background: none;
+  border: none;
+  color: #FFD700;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.language-btn:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  margin-left: 5px;
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #0D1B2A;
+  border: 1px solid #FFD700;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  width: 120px;
+  z-index: 2001; /* Higher than the selector */
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.language-dropdown button {
+  width: 100%;
+  text-align: center;
+  padding: 10px 15px;
+  border: none;
+  background: transparent;
+  color: #FFD700;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.language-dropdown button:hover {
+  background-color: #1A2C3A;
+}
+
+.language-dropdown button.active {
+  background-color: #1A2C3A;
+
+  font-weight: bold;
+  color : #f39c12;
+}
+
+/* Services selector styles */
+.services-selector {
+  position: relative;
+}
+
+.services-btn {
+  background: none;
+  border: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  text-decoration: none; /* Added for Link component */
+}
+
+.services-btn:hover {
+  background-color: #f5f5f5;
+  color: #f39c12;
+}
+
+.services-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 200px;
+  z-index: 9999; /* Increased z-index to ensure it appears above hero section */
+  overflow: visible; /* Changed from hidden to allow sub-menu to be visible */
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.services-dropdown a {
+  width: 100%;
+  text-align: left;
+  padding: 10px 15px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.2s ease;
+}
+
+.services-dropdown a:hover {
+  background-color: #f5f5f5;
+  color: #f39c12;
+}
+
+/* Auth Modal Styles */
+.auth-option {
+  margin-left: 30px;
+}
+
+.auth-btn {
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.auth-btn:hover {
+  background-color: #e67e22;
+}
+
+.auth-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+.auth-modal {
+  background-color: white;
+  border-radius: 8px;
+  width: 400px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #999;
+}
+
+.close-modal:hover {
+  color: #333;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auth-header h2 {
+  color: #6a0dad;
+  margin-bottom: 10px;
+}
+
+.auth-tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.auth-tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.auth-tab.active {
+  color: #f39c12;
+  border-bottom: 2px solid #f39c12;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-group input:focus {
+  border-color: #f39c12;
+  outline: none;
+}
+
+.submit-btn {
+  background-color: #6a0dad;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #5a0b8d;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+}
+
+.auth-footer a {
+  color: #f39c12;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Social Login Buttons */
+.social-login {
+  margin-top: 20px;
+}
+
+.social-login-title {
+  text-align: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.social-login-title::before,
+.social-login-title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 35%;
+  height: 1px;
+  background-color: #eee;
+}
+
+.social-login-title::before {
+  left: 0;
+}
+
+.social-login-title::after {
+  right: 0;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  color: #333;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+}
+
+.google-btn {
+  color: #DB4437;
+}
+
+.facebook-btn {
+  color: #4267B2;
+}
+
+.twitter-btn {
+  color: #1DA1F2;
+}
+
+/* Make the dropdown menus appear above the hero section */
+.services-dropdown,
+.language-dropdown,
+.dropdown-menu,
+.dropdown-content,
+.vedic-astrology-submenu,
+.vastu-submenu,
+.numerology-submenu,
+.career-submenu,
+.yagya-submenu,
+.child-submenu,
+.love-submenu,
+.training-submenu {
+  z-index: 9999 !important;
+}
+
+/* Make the dropdown containers have a higher z-index */
+.services-selector,
+.language-selector,
+.dropdown-menu-item,
+.dropdown-container {
+  z-index: 9999 !important;
+}
+
+/* Ensure the nav-links have a higher z-index */
+.nav-links {
+  z-index: 9999 !important;
+}

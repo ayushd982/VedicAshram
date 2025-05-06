@@ -1,0 +1,196 @@
+.birthtime-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.birthtime-content {
+  flex: 1;
+  margin-top: 60px; /* Space for navbar */
+}
+
+.birthtime-background {
+  background-image: url('../../assets/Birthtime.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 60px);
+  opacity: 1;
+  position: relative;
+}
+
+.birthtime-overlay {
+  background-color: rgba(44, 47, 84, 0.85); /* Deep blue with transparency */
+  padding: 40px 20px;
+  min-height: calc(100vh - 60px);
+}
+
+.birthtime-text-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(245, 245, 220, 0.95); /* Ivory/cream with transparency */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.birthtime-title {
+  color: #FFD700; /* Golden yellow */
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.birthtime-subtitle {
+  color: #FF9933; /* Saffron orange */
+  font-size: 1.8rem;
+}
+
+.birthtime-section {
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.birthtime-section h2 {
+  color: #FF9933; /* Saffron orange */
+  font-family: 'Playfair Display', serif;
+  border-bottom: 1px solid #FFD700;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.birthtime-subsection {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f7;
+  border-radius: 6px;
+  border-left: 3px solid #FF9933;
+}
+
+.birthtime-subsection h3 {
+  color: #2C2F54; /* Deep blue */
+  font-family: 'Gloock', serif;
+  margin-bottom: 10px;
+}
+
+.birthtime-subsection h4, 
+.birthtime-result h4, 
+.birthtime-benefits h4 {
+  color: #FF9933; /* Saffron orange */
+  font-family: 'Merriweather', serif;
+  margin-bottom: 8px;
+}
+
+.birthtime-section p,
+.birthtime-subsection p {
+  color: #333;
+  font-family: 'Lora', serif;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.birthtime-example {
+  font-style: italic;
+  color: #555;
+  background-color: #F6E6B4; /* Pale gold */
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.birthtime-section ul,
+.birthtime-subsection ul {
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.birthtime-section li,
+.birthtime-subsection li {
+  color: #333;
+  font-family: 'Lora', serif;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.birthtime-table-container {
+  overflow-x: auto;
+  margin-bottom: 15px;
+}
+
+.birthtime-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+.birthtime-table th {
+  background-color: #2C2F54; /* Deep blue */
+  color: #F5F5DC; /* Ivory/cream */
+  padding: 10px;
+  text-align: left;
+  font-family: 'Merriweather', serif;
+}
+
+.birthtime-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #ddd;
+  font-family: 'Lora', serif;
+}
+
+.birthtime-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.birthtime-result {
+  background-color: #F6E6B4; /* Pale gold */
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.birthtime-benefits {
+  background-color: #D3D3D3; /* Light gray */
+  padding: 15px;
+  border-radius: 6px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .birthtime-title {
+    font-size: 2rem;
+  }
+  
+  .birthtime-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .birthtime-text-container {
+    padding: 15px;
+  }
+  
+  .birthtime-section {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .birthtime-title {
+    font-size: 1.8rem;
+  }
+  
+  .birthtime-subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .birthtime-overlay {
+    padding: 20px 10px;
+  }
+  
+  .birthtime-text-container {
+    padding: 10px;
+  }
+}

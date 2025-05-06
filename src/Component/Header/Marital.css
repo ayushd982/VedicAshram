@@ -1,0 +1,101 @@
+.marital-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.marital-content {
+  flex: 1;
+  margin-top: 60px; /* Space for navbar */
+}
+
+.marital-background {
+  background-image: url('../../assets/Vivah.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 60px);
+  opacity: 1;
+  position: relative;
+}
+
+.marital-overlay {
+  background: linear-gradient(135deg, rgba(75, 0, 30, 0.85) 0%, rgba(45, 0, 30, 0.9) 100%);
+  padding: 40px 20px;
+  min-height: calc(100vh - 60px);
+}
+
+.marital-text-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(30, 0, 15, 0.7);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: #FAF3E0; /* Creamy beige text */
+}
+
+.marital-title {
+  color: #FFB6C1; /* Light pink */
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.marital-section {
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: rgba(40, 0, 20, 0.6);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.marital-section h2 {
+  color: #FFB6C1; /* Light pink */
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 182, 193, 0.3);
+  padding-bottom: 8px;
+}
+
+.marital-section ul {
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.marital-section li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.conclusion {
+  font-style: italic;
+  color: #FFD700; /* Golden yellow for positive guidance */
+  margin-top: 15px;
+  padding: 10px;
+  border-left: 3px solid #FFD700;
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .marital-title {
+    font-size: 2rem;
+  }
+  
+  .marital-section {
+    padding: 10px;
+  }
+}
+
+/* Links styling */
+.marital-section a {
+  color: #B0C4DE; /* Pale blue */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.marital-section a:hover {
+  color: #FFD700; /* Golden yellow on hover */
+  text-decoration: underline;
+}

@@ -1,0 +1,370 @@
+/* Rudraabhishek CSS */
+.rudra-page {
+  position: relative;
+  min-height: 100vh;
+  font-family: 'Merriweather', 'Mukta', serif;
+  color: #F5F5F5;
+  display: flex;
+  flex-direction: column;
+}
+
+.background-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.3);
+  margin-top: 60px; /* Add margin to create space between navbar and background */
+}
+
+.rudra-content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 0;
+  margin-top: 60px; /* Added margin to create space between header and content */
+  flex: 1;
+}
+
+.rudra-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rudra-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #8A2BE2, #FFA500);
+}
+
+.rudra-title {
+  color: #FFA500; /* Saffron */
+  text-align: center;
+  font-family: 'Cinzel', 'Tiro Devanagari Sanskrit', serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.rudra-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: #8A2BE2; /* Deep violet */
+}
+
+section {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background-color: rgba(25, 25, 112, 0.3); /* Deep blue with transparency */
+  border-radius: 8px;
+  border-left: 4px solid #FFA500; /* Saffron border */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+section h2 {
+  color: #FFA500; /* Saffron */
+  font-family: 'Cinzel', 'Tiro Devanagari Sanskrit', serif;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 165, 0, 0.3);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+section h3 {
+  color: #FFD700; /* Golden-yellow */
+  font-family: 'Cinzel', 'Tiro Devanagari Sanskrit', serif;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+section p {
+  color: #F5F5F5; /* Light silver-white */
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.rudra-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.rudra-description {
+  flex: 1;
+}
+
+.types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.type-card {
+  background-color: rgba(173, 216, 230, 0.1); /* Pale blue with transparency */
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.type-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.note {
+  font-style: italic;
+  background-color: rgba(173, 216, 230, 0.1); /* Pale blue with transparency */
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1.5rem;
+}
+
+.astro-list {
+  list-style-type: none;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.astro-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+.astro-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: #FFD700; /* Golden-yellow */
+}
+
+.procedure-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.procedure-step {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-left: 4px solid #8A2BE2; /* Deep violet */
+  padding: 1.5rem;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.procedure-step:hover {
+  transform: translateX(5px);
+}
+
+.procedure-step ul {
+  list-style-type: none;
+  padding-left: 1.5rem;
+  margin-top: 0.8rem;
+}
+
+.procedure-step ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.procedure-step ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #FFD700; /* Golden-yellow */
+}
+
+.dos-donts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.dos, .donts {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dos {
+  border-left: 4px solid #4CAF50; /* Green */
+}
+
+.donts {
+  border-left: 4px solid #F44336; /* Red */
+}
+
+.dos ul, .donts ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.dos li, .donts li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+.dos li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #4CAF50; /* Green */
+}
+
+.donts li::before {
+  content: '✗';
+  position: absolute;
+  left: 0;
+  color: #F44336; /* Red */
+}
+
+.book-yagya {
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(255, 165, 0, 0.2));
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.book-yagya h2 {
+  color: #FFA500; /* Saffron */
+  font-family: 'Cinzel', 'Tiro Devanagari Sanskrit', serif;
+  margin-bottom: 1rem;
+}
+
+.book-yagya p {
+  color: #F5F5F5;
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.book-button {
+  background: linear-gradient(to right, #8A2BE2, #FFA500);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  font-family: 'Cinzel', 'Tiro Devanagari Sanskrit', serif;
+}
+
+.book-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.book-button:active {
+  transform: translateY(0);
+}
+
+/* Mantras styling */
+.mantra {
+  font-family: 'Sanskrit 2003', serif;
+  color: #FFD700; /* Golden-yellow */
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  line-height: 1.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .rudra-title {
+    font-size: 2rem;
+  }
+  
+  section {
+    padding: 1rem;
+  }
+  
+  .types-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .dos-donts-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation for elements */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+section:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+section:nth-child(even) {
+  animation-delay: 0.4s;
+}
+
+/* Spiritual elements */
+.rudra-container::after {
+  content: 'ॐ';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 3rem;
+  color: rgba(255, 165, 0, 0.2);
+  pointer-events: none;
+}

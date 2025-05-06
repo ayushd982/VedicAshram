@@ -1,0 +1,163 @@
+.muhurat-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.muhurat-content {
+  flex: 1;
+  margin-top: 60px; /* Space for navbar */
+}
+
+.muhurat-background {
+  background-image: url('../../assets/Muhurat.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 60px);
+  opacity: 1;
+  position: relative;
+}
+
+.muhurat-overlay {
+  background: linear-gradient(135deg, rgba(25, 25, 112, 0.9) 0%, rgba(10, 10, 50, 0.95) 100%);
+  padding: 40px 20px;
+  min-height: calc(100vh - 60px);
+  position: relative;
+}
+
+/* Add stardust shimmer effect */
+.muhurat-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="white" opacity="0.5"/><circle cx="30" cy="40" r="0.8" fill="white" opacity="0.4"/><circle cx="50" cy="20" r="1.2" fill="white" opacity="0.6"/><circle cx="70" cy="50" r="0.6" fill="white" opacity="0.3"/><circle cx="90" cy="30" r="1" fill="white" opacity="0.5"/><circle cx="20" cy="80" r="0.7" fill="white" opacity="0.35"/><circle cx="40" cy="60" r="1.1" fill="white" opacity="0.55"/><circle cx="60" cy="90" r="0.9" fill="white" opacity="0.45"/><circle cx="80" cy="70" r="1.3" fill="white" opacity="0.65"/></svg>');
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.muhurat-text-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(10, 10, 40, 0.7);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: #FFFFFF; /* Pure white text */
+  position: relative;
+  z-index: 1;
+}
+
+.muhurat-title {
+  color: #FFD700; /* Royal gold */
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.muhurat-section {
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: rgba(15, 15, 60, 0.6);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.muhurat-section h2 {
+  color: #FFD700; /* Royal gold */
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+  padding-bottom: 8px;
+}
+
+.muhurat-subsection {
+  margin: 15px 0;
+  padding: 10px;
+  background-color: rgba(20, 20, 70, 0.5);
+  border-radius: 6px;
+}
+
+.muhurat-subsection h3 {
+  color: #FF69B4; /* Rich pink */
+  margin-bottom: 10px;
+}
+
+.muhurat-list {
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.muhurat-list li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.muhurat-note {
+  font-style: italic;
+  color: #FF69B4; /* Rich pink */
+  margin: 10px 0;
+}
+
+.muhurat-table-container {
+  margin: 20px 0;
+  overflow-x: auto;
+}
+
+.muhurat-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.muhurat-table th, 
+.muhurat-table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.muhurat-table th {
+  background-color: rgba(255, 215, 0, 0.2);
+  color: #FFD700; /* Royal gold */
+}
+
+.muhurat-table tr:nth-child(even) {
+  background-color: rgba(20, 20, 70, 0.3);
+}
+
+.muhurat-table tr:hover {
+  background-color: rgba(127, 255, 212, 0.1); /* Aqua with low opacity */
+}
+
+/* Links styling */
+.muhurat-section a {
+  color: #7FFFD4; /* Aqua */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.muhurat-section a:hover {
+  color: #FFD700; /* Royal gold on hover */
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .muhurat-title {
+    font-size: 2rem;
+  }
+  
+  .muhurat-section {
+    padding: 10px;
+  }
+  
+  .muhurat-table th, 
+  .muhurat-table td {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}

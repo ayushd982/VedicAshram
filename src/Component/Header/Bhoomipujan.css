@@ -1,0 +1,276 @@
+.bhoomi-container {
+  min-height: 100vh;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+              url('/path-to-your-background-image.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.bhoomi-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header Styles */
+.bhoomi-header {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+              url('/path-to-header-background.jpg');
+  background-size: cover;
+  border-radius: 10px;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bhoomi-header h1 {
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.subheading {
+  color: #666;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Section Styles */
+section {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Benefits Grid */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.benefit-card {
+  background: #f8f8f8;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* Booking Section */
+.booking-section {
+  text-align: center;
+  background: linear-gradient(135deg, #ff9933, #ff8033);
+  color: white;
+}
+
+.book-button {
+  background: white;
+  color: #ff8033;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1.5rem;
+}
+
+.book-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bhoomi-header {
+    padding: 2rem 1rem;
+  }
+
+  .bhoomi-header h1 {
+    font-size: 2rem;
+  }
+
+  .bhoomi-content {
+    padding: 1rem;
+  }
+
+  section {
+    padding: 1.5rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Theme Colors */
+:root {
+  --primary-green: #4CAF50;
+  --primary-saffron: #FF9933;
+  --primary-cream: #FFF8E7;
+  --accent-blue: #4A90E2;
+}
+
+/* Additional Decorative Elements */
+.sanskrit-text {
+  font-family: 'Sanskrit Text', serif;
+  color: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  font-size: 4rem;
+  z-index: -1;
+}/* Bhoomi.css */
+.bhoomi-container {
+  min-height: 100vh;
+  position: relative;
+  background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95));
+  overflow-x: hidden;
+}
+
+.kalash-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.kalash-background img {
+  /* width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; */
+  max-width: 50%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Kalash Corner Decorations */
+.kalash-corner {
+  position: fixed;
+  width: 150px;
+  height: 150px;
+  z-index: -1;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.kalash-corner::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('../../assets/kalsh.png') no-repeat center center;
+  background-size: contain;
+}
+
+/* Add a specific background for the header section */
+.bhoomi-header {
+  position: relative;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+  margin-bottom: 3rem;
+}
+
+.bhoomi-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/path-to-your-kalash.png') no-repeat center center;
+  background-size: contain;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* Add subtle kalash decorations to corners */
+.kalash-corner {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: url('/path-to-your-kalash.png') no-repeat center center;
+  background-size: contain;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.kalash-top-left {
+  top: 0;
+  left: 0;
+  transform: rotate(-45deg);
+}
+
+.kalash-top-right {
+  top: 0;
+  right: 0;
+  transform: rotate(45deg);
+}
+
+.kalash-bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: rotate(-135deg);
+}
+
+.kalash-bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: rotate(135deg);
+}
+
+
+.lotus-decoration {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  opacity: 0.1;
+  background-image: url('/path-to-lotus-image.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}

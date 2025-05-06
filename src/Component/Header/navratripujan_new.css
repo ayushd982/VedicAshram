@@ -1,0 +1,348 @@
+/* Navratri Pujan CSS */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Mukta+Vaani:wght@300;400;500;600;700&display=swap');
+
+.navratri-page {
+  background-color: #2F4F4F;
+  /* background-color: #fff; */
+  background-image: url('../../assets/Navratri.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  position: relative;
+  min-height: 100vh;
+  color: #F5F5DC; /* Ivory/off-white */
+  font-family: 'Lora', 'Mukta Vaani', serif;
+}
+
+.navratri-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/images/om-symbol.png');
+  background-size: 300px;
+  background-position: center;
+  opacity: 1;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.navratri-content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 0;
+  margin-top: 150px; /* Further increased margin to create more space between navbar and content */
+}
+
+.navratri-container {
+  background-color: rgba(30, 10, 60, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  padding: 2.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.navratri-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #C0392B, #FFD700);
+}
+
+.navratri-title {
+  color: #FFD700; /* Golden yellow */
+  text-align: center;
+  font-family: 'Cinzel Decorative', 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.navratri-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: #C0392B; /* Deep red */
+}
+
+.navratri-intro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: center;
+  background-color: rgba(40, 15, 70, 0.6);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navratri-image {
+  flex: 1;
+  min-width: 300px;
+  margin-top: 10px; /* Add some top margin to the image container */
+  padding: 5px; /* Add padding around the image */
+}
+
+.goddess-image {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border: 3px solid #C0392B; /* Deep red */
+  transition: transform 0.3s ease;
+}
+
+.goddess-image:hover {
+  transform: scale(1.02); /* Slight zoom effect on hover */
+}
+
+.navratri-description {
+  flex: 2;
+  min-width: 300px;
+}
+
+.navratri-description h2 {
+  color: #FFD700; /* Golden yellow */
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1.5rem;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+  padding-bottom: 8px;
+}
+
+.navratri-description h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: #C0392B; /* Deep red */
+  border-radius: 50%;
+}
+
+.navratri-description p {
+  color: #F5F5DC; /* Ivory/off-white */
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.navratri-details {
+  margin-bottom: 2rem;
+  background-color: rgba(40, 15, 70, 0.6);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navratri-details h2 {
+  color: #FFD700; /* Golden yellow */
+  font-family: 'Cinzel Decorative', 'Playfair Display', serif;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.navratri-details h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background-color: #C0392B; /* Deep red */
+}
+
+.procedure-step {
+  background-color: rgba(60, 25, 90, 0.5);
+  border-left: 4px solid #C0392B; /* Deep red */
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.procedure-step:hover {
+  transform: translateX(5px);
+}
+
+.procedure-step h3 {
+  color: #FFD700; /* Golden yellow */
+  font-family: 'Cinzel Decorative', 'Playfair Display', serif;
+  margin-bottom: 0.8rem;
+}
+
+.procedure-step p {
+  color: #F5F5DC; /* Ivory/off-white */
+  line-height: 1.6;
+}
+
+.navratri-list {
+  padding-left: 20px;
+  margin-bottom: 15px;
+  list-style-type: none;
+}
+
+.navratri-list li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 25px;
+  color: #F5F5DC; /* Ivory/off-white */
+}
+
+.navratri-list li:before {
+  content: '🌺';
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.navratri-note {
+  font-style: italic;
+  background-color: rgba(75, 0, 130, 0.3);
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 15px 0;
+  border-left: 3px solid #FFD700; /* Golden yellow */
+}
+
+.book-yagya {
+  background: linear-gradient(135deg, rgba(75, 0, 130, 0.3), rgba(47, 79, 79, 0.3));
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.book-yagya h2 {
+  color: #FFD700; /* Golden yellow */
+  font-family: 'Cinzel Decorative', 'Playfair Display', serif;
+  margin-bottom: 1rem;
+}
+
+.book-yagya p {
+  color: #F5F5DC; /* Ivory/off-white */
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.book-button {
+  background: linear-gradient(to right, #C0392B, #D35400);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  font-family: 'Mukta Vaani', sans-serif;
+}
+
+.book-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(to right, #C0392B, #E74C3C);
+}
+
+.book-button:active {
+  transform: translateY(0);
+}
+
+/* Links styling */
+a {
+  color: #4169E1; /* Royal blue */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #FFD700; /* Golden yellow on hover */
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navratri-title {
+    font-size: 2rem;
+  }
+  
+  .navratri-intro {
+    flex-direction: column;
+  }
+  
+  .navratri-image, .navratri-description {
+    flex: 1 1 100%;
+  }
+  
+  .procedure-step {
+    padding: 1rem;
+  }
+}
+
+/* Animation for elements */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navratri-title,
+.navratri-intro,
+.navratri-details,
+.book-yagya {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.procedure-step:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+.procedure-step:nth-child(even) {
+  animation-delay: 0.4s;
+}
+
+/* Festive elements */
+.navratri-container::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 100px;
+  height: 100px;
+  background-image: url('/images/om-symbol.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  pointer-events: none;
+}

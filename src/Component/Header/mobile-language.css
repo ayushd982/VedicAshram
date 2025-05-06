@@ -1,0 +1,54 @@
+/* Mobile language dropdown styles */
+@media (max-width: 768px) {
+  /* Always show language dropdown on mobile */
+  .language-menu-item .dropdown-menu {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 5px 0 !important;
+    background-color: rgba(13, 27, 42, 0.95) !important;
+    border: 1px solid rgba(255, 215, 0, 0.3) !important;
+    z-index: 2002 !important;
+  }
+  
+  /* Style the language buttons */
+  .language-menu-item .dropdown-menu button {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    padding: 15px !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    color: #FFD700 !important;
+    background-color: rgba(13, 27, 42, 0.95) !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.3) !important;
+    cursor: pointer !important;
+  }
+  
+  .language-menu-item .dropdown-menu button:last-child {
+    border-bottom: none !important;
+  }
+  
+  .language-menu-item .dropdown-menu button.active {
+    background-color: #1A2C3A !important;
+  }
+  
+  /* Ensure the language menu item is always visible */
+  .nav-links.mobile-menu-open .language-menu-item {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  
+  /* Ensure the language dropdown is always visible */
+  [data-always-visible="true"] .dropdown-menu {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}

@@ -1,0 +1,452 @@
+/* Mahamrityunjaya CSS */
+.mahamritunjya-page {
+  background-color: #1a1a2e; /* Deep indigo background */
+  background-image: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.85)), url('/images/himalayan-mountains.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  position: relative;
+  min-height: 100vh;
+  color: #f5f5f5;
+}
+
+.mahamritunjya-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/images/shiva-meditating.png');
+  background-size: contain;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.mahamritunjya-content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 0;
+  margin-top: 80px; /* Space for navbar */
+}
+
+.mahamritunjya-container {
+  background-color: rgba(40, 40, 60, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(173, 216, 230, 0.2);
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(173, 216, 230, 0.1);
+}
+
+.mahamritunjya-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #16213e, #87CEEB, #d4af37);
+}
+
+.mahamritunjya-title {
+  color: #d4af37; /* Golden color for title */
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.mahamritunjya-subtitle {
+  color: #87CEEB; /* Icy blue for subtitle */
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.mahamritunjya-intro {
+  background-color: rgba(26, 26, 46, 0.7);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border-left: 3px solid #d4af37;
+}
+
+.mahamritunjya-intro h2 {
+  color: #d4af37;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.mahamritunjya-intro h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: #87CEEB;
+  border-radius: 50%;
+}
+
+.mahamritunjya-intro p {
+  color: #f5f5f5;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.origin-section {
+  background-color: rgba(26, 26, 46, 0.7);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border-left: 3px solid #87CEEB;
+}
+
+.origin-section h3 {
+  color: #87CEEB;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+}
+
+.origin-section p {
+  color: #f5f5f5;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.key-takeaways {
+  background-color: rgba(40, 40, 60, 0.7);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.key-takeaways h3 {
+  color: #d4af37;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.key-takeaways ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.key-takeaways li {
+  color: #f5f5f5;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.key-takeaways li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #d4af37;
+}
+
+.mantra-section {
+  background-color: rgba(26, 26, 46, 0.7);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  text-align: center;
+  border: 1px solid rgba(173, 216, 230, 0.2);
+}
+
+.mantra-section h2 {
+  color: #d4af37;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1.5rem;
+}
+
+.mantra-text {
+  font-size: 1.5rem;
+  color: #f5f5f5;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  font-family: 'Sanskrit Text', serif;
+}
+
+.mantra-meaning {
+  font-size: 1.1rem;
+  color: #87CEEB;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.benefits-section {
+  background-color: rgba(40, 40, 60, 0.7);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.benefits-section h2 {
+  color: #d4af37;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.benefits-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  background-color: rgba(26, 26, 46, 0.7);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.benefit-icon {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  color: #d4af37;
+}
+
+.benefit-text {
+  color: #f5f5f5;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.how-to-section {
+  background-color: rgba(26, 26, 46, 0.7);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.how-to-section h2 {
+  color: #d4af37;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.how-to-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.how-to-item {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #f5f5f5;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.how-to-item::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #87CEEB;
+}
+
+.how-to-item strong {
+  color: #d4af37;
+}
+
+.book-yagya {
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(40, 40, 60, 0.8));
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid rgba(173, 216, 230, 0.2);
+}
+
+.book-yagya h2 {
+  color: #d4af37;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+}
+
+.book-yagya p {
+  color: #f5f5f5;
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.book-button {
+  background: linear-gradient(to right, #16213e, #87CEEB);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(135, 206, 235, 0.3);
+  font-weight: bold;
+}
+
+.book-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(135, 206, 235, 0.4);
+  background: linear-gradient(to right, #16213e, #d4af37);
+}
+
+.book-button:active {
+  transform: translateY(0);
+}
+
+/* Mystical elements */
+.mystical-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.trishul {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-image: url('/images/trishul.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+}
+
+.trishul-1 {
+  top: 10%;
+  left: 5%;
+}
+
+.trishul-2 {
+  bottom: 15%;
+  right: 5%;
+  transform: rotate(45deg);
+}
+
+.damru {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-image: url('/images/damru.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+}
+
+.damru-1 {
+  top: 20%;
+  right: 10%;
+}
+
+.damru-2 {
+  bottom: 25%;
+  left: 10%;
+}
+
+.smoke {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/smoke-effect.png');
+  background-size: cover;
+  opacity: 0.05;
+  animation: smoke-move 60s infinite alternate;
+}
+
+@keyframes smoke-move {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .mahamritunjya-title {
+    font-size: 2rem;
+  }
+  
+  .mahamritunjya-subtitle {
+    font-size: 1rem;
+  }
+  
+  .mantra-text {
+    font-size: 1.2rem;
+  }
+  
+  .benefit-item, .how-to-item {
+    flex-direction: column;
+  }
+  
+  .benefit-icon {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Animation for elements */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mahamritunjya-title,
+.mahamritunjya-subtitle,
+.mahamritunjya-intro,
+.origin-section,
+.key-takeaways,
+.mantra-section,
+.benefits-section,
+.how-to-section,
+.book-yagya {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.benefit-item:nth-child(odd),
+.how-to-item:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+.benefit-item:nth-child(even),
+.how-to-item:nth-child(even) {
+  animation-delay: 0.4s;
+}

@@ -1,0 +1,189 @@
+.birth-astrology-container {
+  min-height: 100vh;
+  background-color: #1A237E;
+  color: #F5F5DC;
+}
+
+.birth-astrology-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  margin-top: 80px; /* Space for navbar */
+}
+
+.language-toggle {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #7E57C2;
+  color: #F5F5DC;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.language-toggle:hover {
+  background: rgba(126, 87, 194, 0.3);
+  transform: scale(1.05);
+}
+
+.main-header {
+  text-align: center;
+  padding: 3rem 2rem;
+  margin-bottom: 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.page-title {
+  font-size: 2.5rem;
+  color: #F5F5DC;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(126, 87, 194, 0.5);
+}
+
+.main-heading {
+  font-size: 2rem;
+  color: #7E57C2;
+  margin-bottom: 1.5rem;
+}
+
+.subheading {
+  font-size: 1.2rem;
+  color: #F5F5DC;
+  max-width: 800px;
+  margin: 0 auto;
+  font-style: italic;
+}
+
+.content-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(126, 87, 194, 0.2);
+}
+
+.main-content {
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.covers-section h3 {
+  color: #7E57C2;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.covers-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.covers-list li {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: rgba(126, 87, 194, 0.1);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.covers-list li:hover {
+  transform: translateX(10px);
+  background: rgba(126, 87, 194, 0.2);
+}
+
+.covers-list li:before {
+  content: "✧";
+  color: #03A9F4;
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+.bonus-text {
+  font-size: 1.2rem;
+  color: #03A9F4;
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.cta-section {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.cta-button {
+  background: #03A9F4;
+  color: #F5F5DC;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(3, 169, 244, 0.3);
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(3, 169, 244, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-header {
+    padding: 2rem 1rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .main-heading {
+    font-size: 1.7rem;
+  }
+
+  .birth-astrology-content {
+    padding: 1rem;
+  }
+
+  .language-toggle {
+    top: 80px;
+    right: 10px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.8rem;
+  }
+
+  .main-heading {
+    font-size: 1.5rem;
+  }
+
+  .subheading {
+    font-size: 1rem;
+  }
+
+  .covers-list li {
+    padding: 0.8rem;
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+  }
+}

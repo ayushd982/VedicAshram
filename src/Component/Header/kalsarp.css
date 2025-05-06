@@ -1,0 +1,366 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #1a237e, #212121);
+  background-size: cover;
+  background-position: center;
+  color: #ECEFF1;
+  background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='smallGrid' width='10' height='10' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 10 0 L 0 0 0 10' fill='none' stroke='rgba(255, 214, 0, 0.05)' stroke-width='0.5'/%3E%3C/pattern%3E%3Cpattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Crect width='100' height='100' fill='url(%23smallGrid)'/%3E%3Cpath d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255, 214, 0, 0.08)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)' /%3E%3C/svg%3E"), 
+    linear-gradient(to bottom, #1a237e, #212121);
+}
+
+.kalsarp-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.kalsarp-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ctext x='50%25' y='50%25' font-size='20' text-anchor='middle' dominant-baseline='middle' fill='rgba(255, 214, 0, 0.03)' transform='rotate(-45 50 50)'%3E॥ ॐ ॥%3C/text%3E%3C/svg%3E");
+  opacity: 0.5;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.header {
+  background-color: #1A237E;
+  padding: 20px;
+  text-align: center;
+  color: #FFD600;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(to right, #0d1442, #1A237E, #0d1442);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+.hindi-button {
+  background: #FFD600;
+  color: #1A237E;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hindi-button:hover {
+  background: #f5c800;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+  background: rgba(26, 35, 126, 0.8);
+  border-radius: 12px;
+  margin: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.main-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cpath d='M100,100 m-75,0 a75,75 0 1,0 150,0 a75,75 0 1,0 -150,0' stroke='rgba(255, 214, 0, 0.03)' stroke-width='2' fill='none'/%3E%3Cpath d='M100,100 m-50,0 a50,50 0 1,0 100,0 a50,50 0 1,0 -100,0' stroke='rgba(255, 214, 0, 0.03)' stroke-width='2' fill='none'/%3E%3Cpath d='M100,100 m-25,0 a25,25 0 1,0 50,0 a25,25 0 1,0 -50,0' stroke='rgba(255, 214, 0, 0.03)' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.main-heading h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #FFD600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: inline-block;
+}
+
+.main-heading h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, transparent, #FFD600, transparent);
+}
+
+.subheading {
+  font-size: 1.2rem;
+  color: #ECEFF1;
+  max-width: 800px;
+  margin: 0 auto;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.introduction {
+  margin-bottom: 40px;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.section {
+  margin-bottom: 50px;
+  position: relative;
+  padding: 20px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+  color: #FFD600;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 214, 0, 0.3);
+  padding-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin-left: 10px;
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 25px;
+  line-height: 1.6;
+}
+
+ul li::before {
+  content: "🔸";
+  position: absolute;
+  left: 0;
+  color: #FFD600;
+}
+
+.benefits-section {
+  background: linear-gradient(to right, rgba(26, 35, 126, 0.9), rgba(183, 28, 28, 0.1), rgba(26, 35, 126, 0.9));
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.benefit-item {
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.benefit-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  display: inline-block;
+  position: relative;
+}
+
+.benefit-icon::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, rgba(255, 214, 0, 0.2) 0%, rgba(255, 214, 0, 0) 70%);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.snake-icon, .yantra-icon, .brain-icon, .shield-icon, .temple-icon {
+  animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 214, 0, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(255, 214, 0, 0.8), 0 0 30px rgba(255, 214, 0, 0.6);
+  }
+}
+
+.days-section {
+  background: linear-gradient(135deg, rgba(26, 35, 126, 0.9), rgba(26, 35, 126, 0.7));
+}
+
+.rituals-section {
+  background: linear-gradient(135deg, rgba(26, 35, 126, 0.7), rgba(183, 28, 28, 0.2));
+}
+
+.who-section {
+  background: linear-gradient(135deg, rgba(183, 28, 28, 0.2), rgba(26, 35, 126, 0.7));
+}
+
+.booking-section {
+  background: linear-gradient(to bottom, rgba(26, 35, 126, 0.8), rgba(26, 35, 126, 0.6));
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.booking-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M50,20 L80,50 L50,80 L20,50 Z' stroke='rgba(255, 214, 0, 0.1)' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.cta-button {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.cta-button button {
+  background: linear-gradient(to right, #FFD600, #FFA000);
+  color: #1A237E;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.cta-button button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button button:hover::before {
+  left: 100%;
+}
+
+.footer {
+  background-color: #0D0D0D;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #ECEFF1;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .main-heading h2 {
+    font-size: 2rem;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .main-content {
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  .section {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .main-heading h2 {
+    font-size: 1.8rem;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-button button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}

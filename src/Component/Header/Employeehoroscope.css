@@ -1,0 +1,205 @@
+.employee-horoscope-container {
+  min-height: 100vh;
+  background-color: #1A1A40;
+  color: #ECECEC;
+}
+
+.employee-horoscope-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  margin-top: 80px; /* Space for navbar */
+}
+
+.main-header {
+  text-align: center;
+  padding: 3rem 2rem;
+  margin-bottom: 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.main-header h1 {
+  font-size: 2.5rem;
+  color: #2E7D32;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(46, 125, 50, 0.3);
+}
+
+.subheading {
+  font-size: 1.2rem;
+  color: #ECECEC;
+  max-width: 800px;
+  margin: 0 auto;
+  font-style: italic;
+}
+
+.section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(46, 125, 50, 0.2);
+}
+
+.section h2 {
+  color: #2E7D32;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.section p {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.benefit-card {
+  background: rgba(46, 125, 50, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.2);
+}
+
+.analysis-section {
+  background: rgba(205, 127, 50, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 3rem 0;
+}
+
+.analysis-section h3 {
+  color: #CD7F32;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.analysis-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.analysis-list li {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.analysis-list li:before {
+  content: "✓";
+  color: #CD7F32;
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+.best-for-section {
+  background: rgba(46, 125, 50, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 3rem;
+}
+
+.best-for-section h3 {
+  color: #2E7D32;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.best-for-list {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.best-for-list li {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid rgba(205, 127, 50, 0.2);
+}
+
+.cta-button {
+  background: #1565C0;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 2rem auto;
+  font-weight: bold;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(21, 101, 192, 0.4);
+}
+
+.language-toggle {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #2E7D32;
+  color: #2E7D32;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-header {
+    padding: 2rem 1rem;
+  }
+
+  .main-header h1 {
+    font-size: 2rem;
+  }
+
+  .employee-horoscope-content {
+    padding: 1rem;
+  }
+
+  .benefits-grid,
+  .best-for-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .subheading {
+    font-size: 1rem;
+  }
+
+  .benefit-card,
+  .best-for-list li {
+    padding: 1.5rem;
+  }
+}

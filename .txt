@@ -1,0 +1,3991 @@
+//Navbar.jsx
+
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import './Navbar.css';
+import './navbar-topbar.css';
+// Try direct import of icons
+// import { FaPhone, FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
+// We'll also use state variables for social media icons as fallback
+
+const Navbar = () => {
+  // We're now using direct imports for icons, so we don't need the state variables
+  // and useEffect for loading icons dynamically
+
+  // State for language selection and dropdown visibility
+  const [language, setLanguage] = useState('english');
+  const [showLanguageMenu, setShowLanguageMenu] = useState(false);
+
+  // State for services dropdown
+  const [showServicesMenu, setShowServicesMenu] = useState(false);
+
+  // State for mythology dropdown
+  const [showMythologyMenu, setShowMythologyMenu] = useState(false);
+
+  // State for consult dropdown
+  const [showConsultMenu, setShowConsultMenu] = useState(false);
+
+  // State for career dropdown
+  const [showCareerMenu, setShowCareerMenu] = useState(false);
+
+  // State for yagya dropdown
+  const [showYagyaMenu, setShowYagyaMenu] = useState(false);
+
+  // State for child astrology dropdown
+  const [showChildMenu, setShowChildMenu] = useState(false);
+
+  // State for love relationship dropdown
+  const [showLoveMenu, setShowLoveMenu] = useState(false);
+
+  // State for training program dropdown
+  const [showTrainingMenu, setShowTrainingMenu] = useState(false);
+
+  // State for auth modal
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [authMode, setAuthMode] = useState('signin'); // 'signin' or 'signup'
+
+  // Form state
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
+
+  // Functions to show/hide dropdown menus on hover
+  const showLanguageDropdown = () => {
+    setShowLanguageMenu(true);
+  };
+
+  const hideLanguageDropdown = () => {
+    setShowLanguageMenu(false);
+  };
+
+  const showServicesDropdown = () => {
+    setShowServicesMenu(true);
+  };
+
+  const hideServicesDropdown = () => {
+    setShowServicesMenu(false);
+  };
+
+  // Functions to show/hide mythology dropdown menu on hover
+  const showMythologyDropdown = () => {
+    setShowMythologyMenu(true);
+    // Close other menus when this one opens
+    setShowConsultMenu(false);
+  };
+
+  const hideMythologyDropdown = () => {
+    // Use setTimeout to allow clicking on menu items
+    setTimeout(() => {
+      setShowMythologyMenu(false);
+    }, 300);
+  };
+
+  // Functions to show/hide consult dropdown menu on hover
+  const showConsultDropdown = () => {
+    setShowConsultMenu(true);
+    // Close other menus when this one opens
+    setShowMythologyMenu(false);
+  };
+
+  const hideConsultDropdown = () => {
+    // Use setTimeout to allow clicking on menu items
+    setTimeout(() => {
+      setShowConsultMenu(false);
+    }, 300);
+  };
+
+  // Functions to show/hide career dropdown menu on hover
+  const showCareerDropdown = () => {
+    setShowCareerMenu(true);
+  };
+
+  const hideCareerDropdown = () => {
+    setShowCareerMenu(false);
+  };
+
+  // Functions to show/hide yagya dropdown menu on hover
+  const showYagyaDropdown = () => {
+    setShowYagyaMenu(true);
+  };
+
+  const hideYagyaDropdown = () => {
+    setShowYagyaMenu(false);
+  };
+
+  // Functions to show/hide child astrology dropdown menu on hover
+  const showChildDropdown = () => {
+    setShowChildMenu(true);
+  };
+
+  const hideChildDropdown = () => {
+    setShowChildMenu(false);
+  };
+
+  // Functions to show/hide training program dropdown menu on hover
+  const showTrainingDropdown = () => {
+    setShowTrainingMenu(true);
+  };
+
+  const hideTrainingDropdown = () => {
+    setShowTrainingMenu(false);
+  };
+
+  // Functions to show/hide love relationship dropdown menu on hover
+  const showLoveDropdown = () => {
+    setShowLoveMenu(true);
+  };
+
+  const hideLoveDropdown = () => {
+    setShowLoveMenu(false);
+  };
+
+  // Function to change the selected language
+  const changeLanguage = (lang) => {
+    setLanguage(lang);
+    setShowLanguageMenu(false); // Close the dropdown after selection
+  };
+
+  // Function to toggle auth modal
+  const toggleAuthModal = () => {
+    setShowAuthModal(!showAuthModal);
+  };
+
+  // Function to switch between sign in and sign up modes
+  const switchAuthMode = () => {
+    setAuthMode(authMode === 'signin' ? 'signup' : 'signin');
+  };
+
+  // Handle form input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Here you would typically handle authentication logic
+    // For now, we'll just log the form data and close the modal
+    console.log('Form submitted:', formData);
+    console.log('Auth mode:', authMode);
+
+    // Reset form and close modal
+    setFormData({
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
+    });
+    setShowAuthModal(false);
+  };
+
+
+  return (
+    <>
+      {/* Top Bar */}
+      <div className="top-bar">
+        <div className="container">
+          <div className="top-bar-content">
+            {/* Phone Number with Icon */}
+            <div className="phone-number">
+              <span>+91 9958807444</span>
+            </div>
+
+            {/* Middle Section with Dropdowns */}
+            <div className="top-bar-middle">
+              {/* Consult Now Dropdown */}
+              <div
+                className="consult-dropdown"
+                onMouseEnter={showConsultDropdown}
+                onMouseLeave={hideConsultDropdown}
+                onClick={() => setShowConsultMenu(!showConsultMenu)}
+              >
+                <span className="consult-text">Consult Now <span className="dropdown-indicator">▼</span></span>
+                <div className="consult-menu" onClick={(e) => e.stopPropagation()} style={{ display: showConsultMenu ? 'block' : 'none' }}>
+                  <Link to="/video-chat" className="consult-option video-chat">
+                    <span className="option-icon video-icon"></span>
+                    Video Chat
+                  </Link>
+                  <Link to="/phone-call" className="consult-option phone-call">
+                    <span className="option-icon phone-icon"></span>
+                    Phone Call
+                  </Link>
+                  <Link to="/text-chat" className="consult-option text-chat">
+                    <span className="option-icon text-icon"></span>
+                    Text Chat
+                  </Link>
+                </div>
+              </div>
+
+              {/* Mythology Dropdown */}
+              <div
+                className="mythology-dropdown"
+                onMouseEnter={showMythologyDropdown}
+                onMouseLeave={hideMythologyDropdown}
+                onClick={() => setShowMythologyMenu(!showMythologyMenu)}
+              >
+                <span className="mythology-text">Read Mythology <span className="dropdown-indicator">▼</span></span>
+                <div className="mythology-menu" onClick={(e) => e.stopPropagation()} style={{ display: showMythologyMenu ? 'block' : 'none' }}>
+                  <Link to="/read-ramayan">Read Ramayan</Link>
+                  <Link to="/read-mahabharat">Read Mahabharat</Link>
+                  <Link to="/read-garud-puran">Read Garud Puran</Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Social Media Icons */}
+          <div className="social-media-icons">
+            <a href="#" target="_blank" rel="noopener noreferrer" className="social-icon-link facebook-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 320 512">
+                <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+              </svg>
+            </a>
+
+            <a href="#" target="_blank" rel="noopener noreferrer" className="social-icon-link instagram-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 448 512">
+                <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+              </svg>
+            </a>
+
+            <a href="#" target="_blank" rel="noopener noreferrer" className="social-icon-link twitter-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 512 512">
+                <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+              </svg>
+            </a>
+
+            <a href="#" target="_blank" rel="noopener noreferrer" className="social-icon-link youtube-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 576 512">
+                <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Header */}
+      <header className="navbar-header">
+        <div className="container">
+          <div className="navbar">
+            <div className="logo">
+              {/* Inline SVG Logo - Most reliable solution */}
+              <svg width="200" height="60" viewBox="0 0 200 60" className="logo-svg">
+                <text x="20" y="40" className="om-symbol">ॐ</text>
+                <text x="60" y="30" className="vedic-text-svg">VEDIC</text>
+                <text x="60" y="50" className="ashram-text-svg">ASHRAM</text>
+                <path d="M60 35 H 180" stroke="#6a0dad" strokeWidth="1" strokeDasharray="2,2" />
+              </svg>
+            </div>
+            <nav className="nav-links">
+              <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/about">About Us</Link></li>
+                <li
+                  className="services-selector"
+                  onMouseEnter={showServicesDropdown}
+                  onMouseLeave={hideServicesDropdown}
+                >
+                  <Link to="/services" className='services-btn'>
+                    Services
+                    <span className="dropdown-arrow">▼</span>
+                  </Link>
+                  {
+                    showServicesMenu && (
+                      <div className="services-dropdown">
+                        <div className="vedic-astrology-item">
+                          <div className="service-with-arrow">
+                            <span>Vedic Astrology</span>
+                            <span className="submenu-arrow">▶</span>
+                          </div>
+
+                          <div className="vedic-astrology-submenu">
+                            <Link to="/vedic-astrology/hast-rekha">Hast Rekha Jyotish</Link>
+                            <Link to="/vedic-astrology/number-jyotish">Number Jyotish</Link>
+                            <Link to="/vedic-astrology/employee-horoscope">Employee Horoscope Reading</Link>
+                            <Link to="/vedic-astrology/birth-personal">Birth and Personal Astrology</Link>
+                            <Link to="/vedic-astrology/birth-chart">Birth Chart</Link>
+                            <Link to="/vedic-astrology/child-horoscope">Child Horoscope Reading</Link>
+                            <Link to="/vedic-astrology/love-marriage">Love Marriage Horoscope</Link>
+                          </div>
+                        </div>
+                        <div className="vastu-item">
+                          <div className="service-with-arrow">
+                            <span>Vastu</span>
+                            <span className="submenu-arrow">▶</span>
+                          </div>
+
+                          <div className="vastu-submenu">
+                            <Link to="/vastu/vastu-shastra">Vastu Shastra</Link>
+                          </div>
+                        </div>
+                        <div className="numerology-item">
+                          <div className="service-with-arrow">
+                            <span>Numerology</span>
+                            <span className="submenu-arrow">▶</span>
+                          </div>
+
+                          <div className="numerology-submenu">
+                            <Link to="/numerology/name-change">Name Change By Numerology</Link>
+                            <Link to="/numerology/consultation">Numerology Consultation</Link>
+                          </div>
+                        </div>
+                        <div
+                          className="career-item"
+                          onMouseEnter={showCareerDropdown}
+                          onMouseLeave={hideCareerDropdown}
+                        >
+                          <div className="service-with-arrow">
+                            <span>Career Astrology</span>
+                            <span className="submenu-arrow">▶</span>
+                          </div>
+                          {showCareerMenu && (
+                            <div className="career-submenu">
+                              <Link to="/career-astrology/money">Career and Money Astrology</Link>
+                            </div>
+                          )}
+                        </div>
+                        <div
+                          className="child-item"
+                          onMouseEnter={showChildDropdown}
+                          onMouseLeave={hideChildDropdown}
+                        >
+                          <div className="service-with-arrow">
+                            <span>Child Astrology</span>
+                            <span className="submenu-arrow">▶</span>
+                          </div>
+                          {showChildMenu && (
+                            <div className="child-submenu">
+                              <Link to="/child-astrology/baby-name">Baby Name Selection</Link>
+                              <Link to="/child-astrology/birth-time">Birth Time Selection</Link>
+                              <Link to="/child-astrology/consultation">Child Astrology Consultation</Link>
+                              <Link to="/child-astrology/education">Child Education</Link>
+                            </div>
+                          )}
+                        </div>
+                        <div
+                          className="yagya-item"
+                          onMouseEnter={showYagyaDropdown}
+                          onMouseLeave={hideYagyaDropdown}
+                        >
+                          <div className="service-with-arrow">
+                            <span>Yagya/Hawan</span>
+                            <span className="submenu-arrow">▶</span>
+                          </div>
+                          {showYagyaMenu && (
+                            <div className="yagya-submenu">
+                              <Link to="/yagya/kal-sarp-dosh">Kal Sarp Dosh Yagya</Link>
+                              <Link to="/yagya/mahamrityunjaya">Mahamrityunjaya Yagya</Link>
+                              <Link to="/yagya/manglik-dosh">Manglik Dosh Nivaran Yagya</Link>
+                              <Link to="/yagya/pitra-dosh">Pitra Dosh Nivaran Yagya</Link>
+                              <Link to="/yagya/navratri-pooja">Navratri Pooja Vidhi Vidhan</Link>
+                              <Link to="/yagya/rudrabhishek">Rudrabhishek</Link>
+                              <Link to="/yagya/mool-shanti">Mool Shanti Yagya</Link>
+                              <Link to="/yagya/banglamukhi">Banglamukhi Yagya</Link>
+                              <Link to="/yagya/narayan-bali">Narayan Bali Sanskar</Link>
+                              <Link to="/yagya/santaan-prapti">Santaan Prapti Mahayagya</Link>
+                              <Link to="/yagya/vivah-sanskar">Vivah Sanskar</Link>
+                              <Link to="/yagya/grah-pravesh">Grah Pravesh</Link>
+                              <Link to="/yagya/bhoomi-poojan">Bhoomi Poojan</Link>
+                            </div>
+                          )}
+                        </div>
+                        <div
+                          className="love-item"
+                          onMouseEnter={showLoveDropdown}
+                          onMouseLeave={hideLoveDropdown}
+                        >
+                          <div className="service-with-arrow">
+                            <span>Love Relationship</span>
+                            <span className="submenu-arrow">▶</span>
+                          </div>
+                          {showLoveMenu && (
+                            <div className="love-submenu">
+                              <Link to="/love-relationship/marital-problem">Marital Problem Solution</Link>
+                              <Link to="/love-relationship/mahurata">Mahurata For Marriage</Link>
+                              <Link to="/love-relationship/matchmaking">Vedic Matchmaking</Link>
+                              <Link to="/love-relationship/delay-remedy">Remedy Astrology For Delay In Marriage</Link>
+                              <Link to="/love-relationship/spouse-horoscope">Know your Spouse from your Horoscope</Link>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )
+                  }
+                </li>
+                <li className="dropdown-menu-item" onMouseEnter={showTrainingDropdown} onMouseLeave={hideTrainingDropdown}>
+                  <span className="nav-link">
+                    Training Program
+                    <span className="dropdown-arrow">▼</span>
+                  </span>
+                  {showTrainingMenu && (
+                    <div className="dropdown-menu">
+                      <Link to="/training/classical-music">Classical Music Course</Link>
+                      <Link to="/training/mantrocharan">Mantrocharan Training</Link>
+                      <Link to="/training/vedic-jyotish">Vedic Jyotish</Link>
+                    </div>
+                  )}
+                </li>
+                <li><Link to="/contact">Contact</Link></li>
+                <li
+                  className="language-selector"
+                  onMouseEnter={showLanguageDropdown}
+                  onMouseLeave={hideLanguageDropdown}
+                >
+                  <button className='language-btn'>
+                    {language === 'english' ? 'English' : 'हिंदी'}
+                    <span className="dropdown-arrow">▼</span>
+                  </button>
+                  {
+                    showLanguageMenu && (
+                      <div className="language-dropdown">
+                        <button
+                          onClick={() => changeLanguage('english')}
+                          className={language === 'english' ? 'active' : ''}
+                        >
+                          English
+                        </button>
+                        <button
+                          onClick={() => changeLanguage('hindi')}
+                          className={language === 'hindi' ? 'active' : ''}
+                        >
+                          हिंदी
+                        </button>
+                      </div>
+                    )
+                  }
+                </li>
+                <li className="auth-option">
+                  <button onClick={toggleAuthModal} className="auth-btn">
+                    Sign In / Sign Up
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        {/* Auth Modal */}
+        {
+          showAuthModal && (
+
+            <div className="auth-modal-overlay" onClick={toggleAuthModal}>
+              <div className="auth-modal" onClick={(e) => e.stopPropagation()}>
+                <button className="close-modal" onClick={toggleAuthModal}>×</button>
+
+                <h2>{authMode === 'signin' ? 'Sign In' : 'Sign Up'}</h2>
+
+                <form onSubmit={handleSubmit}>
+                  {authMode === 'signup' && (
+                    <div className="form-group">
+                      <label htmlFor="name">Full Name</label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required={authMode === 'signup'}
+                      />
+                    </div>
+                  )}
+
+                  <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      value={formData.password}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+
+                  {authMode === 'signup' && (
+                    <div className="form-group">
+                      <label htmlFor="confirmPassword">Confirm Password</label>
+                      <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        value={formData.confirmPassword}
+                        onChange={handleInputChange}
+                        required={authMode === 'signup'}
+                      />
+                    </div>
+                  )}
+
+                  <button type="submit" className="submit-btn">
+                    {authMode === 'signin' ? 'Sign In' : 'Sign Up'}
+                  </button>
+                </form>
+
+                <div className="auth-switch">
+                  {authMode === 'signin' ? (
+                    <p>Don't have an account? <button onClick={switchAuthMode}>Sign Up</button></p>
+                  ) : (
+                    <p>Already have an account? <button onClick={switchAuthMode}>Sign In</button></p>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+      </>
+      )
+}
+
+      export default Navbar
+
+
+//Navbar.css
+
+
+/* Top Bar Styles */
+.top-bar {
+  background-color: #6a0dad; /* Violet color */
+  color: white;
+  padding: 10px 0;
+  border-radius: 0 0 10px 10px;
+  z-index: 1001;
+}
+
+.top-bar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+/* Phone Number Styles */
+.phone-number {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.phone-icon {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+/* Middle Section Styles */
+.top-bar-middle {
+  display: flex;
+  gap: 20px;
+}
+
+/* Social Media Icons Styles */
+.social-media-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.social-icon-link {
+  color: white;
+  transition: color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  padding: 6px;
+}
+
+.social-icon {
+  font-size: 18px;
+  display: block;
+}
+
+.social-icon-link:hover {
+  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.facebook-icon:hover {
+  color: #4267B2;
+}
+
+.instagram-icon:hover {
+  color: #E1306C;
+}
+
+.twitter-icon:hover {
+  color: #1DA1F2;
+}
+
+.youtube-icon:hover {
+  color: #FF0000;
+}
+
+.consult-dropdown, .mythology-dropdown {
+  position: relative;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.consult-text, .mythology-text {
+  font-weight: 500;
+}
+
+.consult-menu, .mythology-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 180px;
+  z-index: 1002;
+  overflow: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.mythology-menu {
+  width: 200px;
+}
+
+.consult-menu a, .mythology-menu a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.consult-menu a:hover, .mythology-menu a:hover {
+  background-color: #f5f5f5;
+  color: #6a0dad;
+}
+
+
+
+/* Main Header Styles */
+.navbar-header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* SVG Logo Styles */
+.logo-svg {
+  overflow: visible;
+}
+
+.om-symbol {
+  font-size: 32px;
+  fill: #6a0dad;
+  font-family: Arial, sans-serif;
+}
+
+.vedic-text-svg {
+  font-size: 24px;
+  fill: #6a0dad;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+.ashram-text-svg {
+  font-size: 18px;
+  fill: #f39c12;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+.nav-links ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 30px;
+}
+
+.nav-links a, .nav-links Link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.nav-links a:hover, .nav-links Link:hover {
+  color: #f39c12;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  /* Top Bar Responsive Styles */
+  .top-bar-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .top-bar-middle {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .social-media-icons {
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+  .consult-menu, .mythology-menu {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Navbar Responsive Styles */
+  .navbar {
+    flex-direction: column;
+  }
+
+  .logo {
+    margin-bottom: 15px;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .language-selector, .services-selector {
+    margin-top: 5px;
+  }
+
+  .language-dropdown, .services-dropdown {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+  }
+
+  /* For touch devices, make dropdowns stay visible longer */
+  .language-selector:hover .language-dropdown,
+  .services-selector:hover .services-dropdown,
+  .consult-dropdown:hover .consult-menu,
+  .mythology-dropdown:hover .mythology-menu {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .auth-option {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+
+  .auth-modal {
+    width: 90%;
+    padding: 20px;
+    margin: 0 15px;
+  }
+}
+
+/* Sub-menu Styles (Common) */
+.vedic-astrology-item, .vastu-item, .numerology-item, .career-item, .yagya-item, .child-item, .love-item, .training-item {
+  position: relative;
+  cursor: pointer;
+}
+
+.service-with-arrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  color: #333;
+  transition: background-color 0.2s ease;
+}
+
+.service-with-arrow:hover {
+  background-color: #f5f5f5;
+  color: #f39c12;
+}
+
+.vedic-astrology-item:hover .vedic-astrology-submenu,
+.vastu-item:hover .vastu-submenu,
+.numerology-item:hover .numerology-submenu,
+.career-item:hover .career-submenu,
+.yagya-item:hover .yagya-submenu,
+.child-item:hover .child-submenu,
+.love-item:hover .love-submenu,
+.training-item:hover .training-submenu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0); /* Move to correct position */
+}
+
+/* Specific rule for Career sub-menu to ensure it works */
+.career-item:hover .career-submenu {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 9999 !important;
+}
+
+/* Dropdown menu styles for Training Program */
+.dropdown-menu-item {
+  position: relative;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 15px;
+  color: #333;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #f39c12;
+}
+
+.dropdown-arrow {
+  margin-left: 5px;
+  font-size: 10px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 220px;
+  z-index: 1002;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  transform: translateY(-10px);
+}
+
+.dropdown-menu-item:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f5f5f5;
+  color: #f39c12;
+}
+
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.main-link {
+  display: block;
+  padding: 12px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.main-link:hover {
+  background-color: #f5f5f5;
+  color: #f39c12;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 250px;
+  z-index: 1002;
+  padding-left: 5px;
+}
+
+.dropdown-container:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 12px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #f5f5f5;
+  color: #f39c12;
+}
+
+.submenu-arrow {
+  font-size: 10px;
+  margin-left: 5px;
+}
+
+.vedic-astrology-submenu, .vastu-submenu, .numerology-submenu, .career-submenu, .yagya-submenu, .child-submenu, .love-submenu, .training-submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 250px;
+  z-index: 1002;
+  overflow: auto; /* Changed from hidden to auto to allow scrolling for long menus */
+  max-height: 400px; /* Added max-height to enable scrolling for long menus */
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; /* Prevents the sub-menu from disappearing when moving to it */
+  transform: translateX(-10px); /* Start slightly to the left */
+  padding-left: 5px; /* Add padding to create a buffer zone */
+}
+
+.vedic-astrology-submenu a, .vastu-submenu a, .numerology-submenu a, .career-submenu a, .yagya-submenu a, .child-submenu a, .love-submenu a, .training-submenu a {
+  display: block;
+  padding: 12px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.vedic-astrology-submenu a:hover, .vastu-submenu a:hover, .numerology-submenu a:hover, .career-submenu a:hover, .yagya-submenu a:hover, .child-submenu a:hover, .love-submenu a:hover, .training-submenu a:hover {
+  background-color: #f5f5f5;
+  color: #f39c12;
+}
+
+/* Responsive styles for sub-menu */
+@media (max-width: 768px) {
+  .vedic-astrology-submenu, .vastu-submenu, .numerology-submenu, .career-submenu, .yagya-submenu, .child-submenu, .love-submenu, .training-submenu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    margin-left: 15px;
+    border-left: 2px solid #f39c12;
+    transform: none;
+    padding-left: 0;
+    max-height: none; /* Remove max-height on mobile */
+  }
+
+  .service-with-arrow {
+    padding: 10px 15px;
+  }
+
+  /* For touch devices, make sub-menu visible on tap */
+  .vedic-astrology-item:hover .vedic-astrology-submenu,
+  .vedic-astrology-item:active .vedic-astrology-submenu,
+  .vedic-astrology-item:focus .vedic-astrology-submenu,
+  .vastu-item:hover .vastu-submenu,
+  .vastu-item:active .vastu-submenu,
+  .vastu-item:focus .vastu-submenu,
+  .numerology-item:hover .numerology-submenu,
+  .numerology-item:active .numerology-submenu,
+  .numerology-item:focus .numerology-submenu,
+  .career-item:hover .career-submenu,
+  .career-item:active .career-submenu,
+  .career-item:focus .career-submenu,
+  .yagya-item:hover .yagya-submenu,
+  .yagya-item:active .yagya-submenu,
+  .yagya-item:focus .yagya-submenu,
+  .child-item:hover .child-submenu,
+  .child-item:active .child-submenu,
+  .child-item:focus .child-submenu,
+  .love-item:hover .love-submenu,
+  .love-item:active .love-submenu,
+  .love-item:focus .love-submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  /* Make the parent item clickable on mobile */
+  .vedic-astrology-item, .vastu-item, .numerology-item, .career-item, .yagya-item, .child-item, .love-item, .dropdown-menu-item {
+    display: block;
+  }
+
+  /* Mobile styles for dropdown menu */
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    margin-left: 15px;
+    border-left: 2px solid #f39c12;
+    transform: none;
+    padding-left: 0;
+    max-height: none;
+  }
+
+  .dropdown-menu-item:hover .dropdown-menu,
+  .dropdown-menu-item:active .dropdown-menu,
+  .dropdown-menu-item:focus .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .nav-link {
+    padding: 10px 15px;
+  }
+}
+
+
+/* Language selector styles */
+.language-selector {
+  position: relative;
+}
+
+.language-btn {
+  background: none;
+  border: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.language-btn:hover {
+  background-color: #f5f5f5;
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  margin-left: 5px;
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 120px;
+  z-index: 1001;
+  overflow: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.language-dropdown button {
+  width: 100%;
+  text-align: left;
+  padding: 10px 15px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.language-dropdown button:hover {
+  background-color: #f5f5f5;
+}
+
+.language-dropdown button.active {
+  background-color: #f0f0f0;
+  font-weight: bold;
+  color: #f39c12;
+}
+
+/* Services selector styles */
+.services-selector {
+  position: relative;
+}
+
+.services-btn {
+  background: none;
+  border: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  text-decoration: none; /* Added for Link component */
+}
+
+.services-btn:hover {
+  background-color: #f5f5f5;
+  color: #f39c12;
+}
+
+.services-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 200px;
+  z-index: 1001;
+  overflow: visible; /* Changed from hidden to allow sub-menu to be visible */
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.services-dropdown a {
+  width: 100%;
+  text-align: left;
+  padding: 10px 15px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+  color: #333;
+}
+
+.services-dropdown a:hover {
+  background-color: #f5f5f5;
+  color: #f39c12;
+}
+
+/* Auth button styles */
+.auth-option {
+  margin-left: 20px;
+}
+
+.auth-btn {
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-btn:hover {
+  background-color: #e67e22;
+}
+
+/* Auth modal styles */
+.auth-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.auth-modal {
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.auth-modal h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #e67e22;
+}
+
+.auth-switch {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.auth-switch button {
+  background: none;
+  border: none;
+  color: #f39c12;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  font-size: 14px;
+}
+
+.auth-switch button:hover {
+  text-decoration: underline;
+}
+
+//navbar-topbar.css
+/* Top Bar Styles */
+.top-bar {
+  background: linear-gradient(135deg, rgba(25, 25, 112, 0.95) 0%, rgba(72, 61, 139, 0.95) 100%);
+  color: white;
+  padding: 10px 0;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.top-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+  background-size: cover;
+  opacity: 0.15;
+  mix-blend-mode: luminosity;
+  z-index: -1;
+}
+
+.top-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    url('https://i.imgur.com/8eyrVly.png'),
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  background-size: 500px, 100%, 100%;
+  background-position: center, center, center;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.top-bar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Phone Number Styles */
+.phone-number {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
+  padding-left: 30px;
+}
+
+.phone-number::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>') no-repeat center center;
+  background-size: contain;
+}
+
+.phone-number span {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.phone-number:hover span {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(135, 206, 250, 0.8);
+}
+
+/* Top Bar Middle Section */
+.top-bar-middle {
+  display: flex;
+  gap: 20px;
+}
+
+/* Consult Dropdown */
+.consult-dropdown, .mythology-dropdown {
+  position: relative;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  z-index: 9998; /* Just below the dropdown menu */
+}
+
+.consult-dropdown:hover, .mythology-dropdown:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.consult-text, .mythology-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 28px;
+}
+
+.dropdown-indicator {
+  font-size: 0.7rem;
+  margin-left: 5px;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.consult-dropdown:hover .dropdown-indicator,
+.mythology-dropdown:hover .dropdown-indicator {
+  opacity: 1;
+  transform: translateY(2px);
+}
+
+.consult-text::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V10h16v11zm0-13H4V5h16v3z"/><path d="M12 12h5v5h-5z"/></svg>') no-repeat center center;
+  background-size: contain;
+}
+
+.mythology-text::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg>') no-repeat center center;
+  background-size: contain;
+}
+
+.consult-menu, .mythology-menu {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  background: linear-gradient(135deg, rgba(25, 25, 112, 0.95) 0%, rgba(72, 61, 139, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  min-width: 200px;
+  border-radius: 4px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(70, 130, 180, 0.2);
+  padding: 10px 0;
+  z-index: 9999; /* Increased z-index to ensure it's above everything */
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Style for visible dropdown menus */
+.consult-dropdown:hover .consult-menu,
+.mythology-dropdown:hover .mythology-menu,
+.consult-menu:hover,
+.mythology-menu:hover {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+/* When rendered by React state */
+.consult-menu, .mythology-menu {
+  animation: fadeInMenu 0.3s ease;
+}
+
+@keyframes fadeInMenu {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.consult-menu a, .mythology-menu a {
+  display: block;
+  padding: 10px 15px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.consult-menu a::before, .mythology-menu a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: linear-gradient(to bottom, rgba(135, 206, 250, 0), rgba(135, 206, 250, 0.8), rgba(135, 206, 250, 0));
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.consult-menu a:hover, .mythology-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding-left: 20px;
+}
+
+.consult-menu a:hover::before, .mythology-menu a:hover::before {
+  opacity: 1;
+}
+
+/* Consult Options Styling */
+.consult-option {
+  display: flex !important;
+  align-items: center;
+  padding: 12px 15px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.consult-option:last-child {
+  border-bottom: none;
+}
+
+.option-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.consult-option:hover .option-icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Video Chat Option */
+.video-chat {
+  color: rgba(135, 206, 250, 0.9) !important;
+}
+
+.video-chat:hover {
+  background-color: rgba(135, 206, 250, 0.1) !important;
+  color: rgba(135, 206, 250, 1) !important;
+}
+
+.video-icon {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2387CEFA"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>');
+}
+
+/* Phone Call Option */
+.phone-call {
+  color: rgba(144, 238, 144, 0.9) !important;
+}
+
+.phone-call:hover {
+  background-color: rgba(144, 238, 144, 0.1) !important;
+  color: rgba(144, 238, 144, 1) !important;
+}
+
+.phone-icon {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2390EE90"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>');
+}
+
+/* Text Chat Option */
+.text-chat {
+  color: rgba(255, 165, 0, 0.9) !important;
+}
+
+.text-chat:hover {
+  background-color: rgba(255, 165, 0, 0.1) !important;
+  color: rgba(255, 165, 0, 1) !important;
+}
+
+.text-icon {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFA500"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>');
+}
+
+/* Social Media Icons */
+.social-media-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.social-icon-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(135, 206, 250, 0.4);
+}
+
+.social-icon-link:hover::before {
+  opacity: 1;
+}
+
+.facebook-icon:hover {
+  background-color: #3b5998;
+}
+
+.instagram-icon:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.twitter-icon:hover {
+  background-color: #1da1f2;
+}
+
+.youtube-icon:hover {
+  background-color: #ff0000;
+}
+
+.social-icon {
+  font-size: 1rem;
+  color: white;
+}
+
+/* Main Header Margin */
+.navbar-header {
+  margin-top: 15px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .top-bar-content {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  
+  .top-bar-middle {
+    order: -1;
+    margin-bottom: 10px;
+  }
+  
+  .navbar-header {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar-middle {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .social-media-icons {
+    margin-top: 10px;
+  }
+  
+  .navbar-header {
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .top-bar {
+    padding: 8px 0;
+  }
+  
+  .phone-number {
+    font-size: 0.85rem;
+  }
+  
+  .consult-text, .mythology-text {
+    font-size: 0.85rem;
+  }
+  
+  .social-icon-link {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .social-icon {
+    font-size: 0.9rem;
+  }
+  
+  .navbar-header {
+    margin-top: 5px;
+  }
+}
+
+//Home.css
+/* General Styles */
+:root {
+  --primary-color: #f39c12;
+  --primary-dark: #e67e22;
+  --secondary-color: #3498db;
+  --text-color: #333;
+  --light-text: #777;
+  --light-bg: #f8f8f8;
+  --dark-bg: #222;
+  --border-color: #eee;
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: var(--text-color);
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background-color: var(--primary-color);
+  margin: 10px auto 0;
+}
+
+.section-header p {
+  color: var(--light-text);
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.primary-btn, .secondary-btn, .outline-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 4px;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+.primary-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+.primary-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.secondary-btn {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+}
+
+.secondary-btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.outline-btn {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.outline-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Kundali Forms Section */
+.kundali-forms-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, rgba(135, 206, 250, 0.85) 0%, rgba(0, 0, 0, 0.8) 100%),
+              url('https://images.unsplash.com/photo-1506703719100-a0b3ea946e59?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.kundali-forms-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1614732414444-096e5f1122d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+  background-size: cover;
+  opacity: 0.3;
+  mix-blend-mode: screen;
+  z-index: 0;
+}
+
+/* Add floating planets */
+.kundali-forms-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.3) 0%, transparent 20%),
+    radial-gradient(circle at 85% 60%, rgba(255, 255, 255, 0.2) 0%, transparent 15%),
+    radial-gradient(circle at 40% 80%, rgba(135, 206, 250, 0.3) 0%, transparent 25%),
+    radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 10%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Add twinkling stars */
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.3; }
+}
+
+.kundali-forms-section .container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(1px 1px at 10% 10%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 20% 50%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 30%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 40% 70%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 65% 10%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 40%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 80%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 60%, rgba(255, 255, 255, 0.9) 0%, transparent 100%);
+  animation: twinkle 5s infinite alternate;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.kundali-section-header h2 {
+  color: white;
+  text-shadow: 0 0 15px rgba(135, 206, 250, 0.8);
+  position: relative;
+  z-index: 1;
+}
+
+.kundali-section-header h2::after {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(135, 206, 250, 0.8);
+}
+
+.kundali-section-header p {
+  color: white;
+  text-shadow: 0 0 10px rgba(135, 206, 250, 0.6);
+  position: relative;
+  z-index: 1;
+}
+
+.kundali-forms-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+  margin-top: 50px;
+}
+
+.kundali-form-box {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25), 0 0 20px rgba(135, 206, 250, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.kundali-form-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(135, 206, 250, 0.1) 0%, transparent 70%);
+  z-index: -1;
+}
+
+.kundali-form-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(135, 206, 250, 0.4);
+}
+
+.kundali-form-box h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #1e3c72;
+  display: inline-block;
+  position: relative;
+  font-weight: 700;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.kundali-form-box h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.kundali-form-box hr {
+  border: none;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin-bottom: 15px;
+}
+
+.form-subtitle {
+  display: block;
+  margin: 15px 0;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 8px 15px;
+  border-radius: 5px;
+  border-left: 3px solid #4facfe;
+}
+
+.kundali-form {
+  margin-top: 20px;
+}
+
+.form-row {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.form-group {
+  flex: 1;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid rgba(135, 206, 250, 0.3);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: rgba(79, 172, 254, 0.8);
+  box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.2);
+  outline: none;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #555;
+}
+
+.date-time-row {
+  margin-bottom: 15px;
+}
+
+.date-inputs,
+.time-inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.date-inputs select,
+.time-inputs select {
+  flex: 1;
+}
+
+.kundali-submit-btn {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(79, 172, 254, 0.3);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.kundali-submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.kundali-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25), 0 0 15px rgba(79, 172, 254, 0.4);
+}
+
+.kundali-submit-btn:hover::before {
+  opacity: 1;
+}
+
+.back-btn {
+  background-color: #95a5a6;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #7f8c8d;
+}
+
+.match-horoscope {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 992px) {
+  .kundali-forms-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .date-inputs,
+  .time-inputs {
+    flex-wrap: wrap;
+  }
+
+  .match-horoscope {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
+
+/* Section Spacing */
+section {
+  margin-bottom: 80px;
+  position: relative;
+}
+
+section:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, transparent, rgba(243, 156, 18, 0.5), transparent);
+}
+
+section:last-child {
+  margin-bottom: 0;
+}
+
+/* Section Separator */
+.section-separator {
+  height: 60px;
+  position: relative;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-separator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(135, 206, 250, 0.5), transparent);
+}
+
+.section-separator::after {
+  content: '✧';
+  position: relative;
+  background-color: #fff;
+  color: rgba(135, 206, 250, 0.8);
+  font-size: 1.5rem;
+  padding: 0 15px;
+  text-shadow: 0 0 10px rgba(135, 206, 250, 0.5);
+}
+
+/* Hero Section with Slider */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  margin-bottom: 50px; /* Add margin after hero section */
+  padding-top: 0; /* No padding needed since header is static */
+  z-index: 1; /* Ensure this is lower than navbar and dropdown menus */
+}
+
+/* Video and Expert Consultation Section */
+.video-expert-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, rgba(25, 85, 155, 0.9) 0%, rgba(20, 20, 40, 0.95) 100%);
+  position: relative;
+  overflow: hidden;
+  margin-top: 30px; /* Add top margin */
+}
+
+/* Cosmic orbits */
+.cosmic-orbit {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border: 1px solid rgba(135, 206, 250, 0.2);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  animation: rotate 60s linear infinite;
+}
+
+.cosmic-orbit::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(135, 206, 250, 0.8) 0%, rgba(135, 206, 250, 0.2) 70%, transparent 100%);
+  border-radius: 50%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 20px rgba(135, 206, 250, 0.8);
+}
+
+.orbit-2 {
+  width: 400px;
+  height: 400px;
+  animation: rotate 40s linear infinite reverse;
+}
+
+.orbit-2::before {
+  width: 15px;
+  height: 15px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.2) 70%, transparent 100%);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes rotate {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Moving planets background */
+.video-expert-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1506703719100-a0b3ea946e59?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+  background-size: cover;
+  opacity: 0.2;
+  z-index: 0;
+  animation: slowPan 60s linear infinite alternate;
+}
+
+@keyframes slowPan {
+  0% { transform: scale(1.1) translate(0, 0); }
+  50% { transform: scale(1.2) translate(-2%, -1%); }
+  100% { transform: scale(1.1) translate(2%, 1%); }
+}
+
+/* Floating planets */
+.video-expert-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.3) 0%, transparent 15%),
+    radial-gradient(circle at 20% 65%, rgba(135, 206, 250, 0.2) 0%, transparent 12%),
+    radial-gradient(circle at 90% 85%, rgba(255, 255, 255, 0.15) 0%, transparent 10%);
+  z-index: 0;
+  animation: floatPlanets 30s ease-in-out infinite alternate;
+}
+
+@keyframes floatPlanets {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-10px, 10px); }
+  100% { transform: translate(10px, -10px); }
+}
+
+.video-expert-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Add stars to container */
+.video-expert-container::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
+  background-image:
+    radial-gradient(1px 1px at 10% 10%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 20% 50%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 30%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 40% 70%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 65% 10%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 40%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 80%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 60%, rgba(255, 255, 255, 0.9) 0%, transparent 100%);
+  z-index: -1;
+  animation: twinkleStars 5s infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes twinkleStars {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0.3; }
+}
+
+/* Video Box Styles */
+.video-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(70, 130, 180, 0.3);
+  position: relative;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.video-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(70, 130, 180, 0.4);
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 30px 20px 20px;
+  color: white;
+  text-align: center;
+}
+
+.video-overlay h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.video-overlay p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Ask Expert Box Styles */
+.ask-expert-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(70, 130, 180, 0.3);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ask-expert-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(70, 130, 180, 0.4);
+}
+
+.ask-expert-box::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(135, 206, 250, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+  animation: pulseGlow 8s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+  100% { opacity: 0.3; transform: scale(1); }
+}
+
+.ask-expert-box h3 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 15px;
+  text-shadow: 0 0 10px rgba(135, 206, 250, 0.5);
+}
+
+.ask-expert-box h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  box-shadow: 0 0 10px rgba(79, 172, 254, 0.7);
+}
+
+.ask-expert-box p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.expert-form-container {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-left: 4px solid #4facfe;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.expert-form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
+  z-index: -1;
+  border-radius: 12px;
+}
+
+.expert-form .form-group {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.expert-form textarea,
+.expert-form input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid rgba(135, 206, 250, 0.3);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.expert-form textarea::placeholder,
+.expert-form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.expert-form textarea:focus,
+.expert-form input:focus {
+  outline: none;
+  border-color: #4facfe;
+  box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.expert-form textarea {
+  resize: none;
+}
+
+.word-count {
+  text-align: right;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.ask-now-btn {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(79, 172, 254, 0.3);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.ask-now-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.ask-now-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25), 0 0 15px rgba(79, 172, 254, 0.4);
+}
+
+.ask-now-btn:hover::before {
+  opacity: 1;
+}
+
+.expert-credentials {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.expert-credentials::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(135, 206, 250, 0.5), transparent);
+  z-index: -1;
+}
+
+.expert-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px;
+  border: 3px solid transparent;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) border-box;
+  /* -webkit-mask:
+     linear-gradient(#fff 0 0) padding-box,
+     linear-gradient(#fff 0 0); */
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  box-shadow: 0 0 15px rgba(79, 172, 254, 0.5);
+  position: relative;
+}
+
+.expert-avatar::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(79, 172, 254, 0.2) 0%, rgba(0, 242, 254, 0.2) 100%);
+  z-index: -1;
+  animation: pulseAvatar 3s infinite;
+}
+
+@keyframes pulseAvatar {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+.expert-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.expert-info h4 {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 5px;
+  text-shadow: 0 0 10px rgba(135, 206, 250, 0.5);
+}
+
+.expert-info p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Ensure this is lower than navbar and dropdown menus */
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1; /* Keep this low to ensure dropdowns appear above */
+}
+
+#slide1 {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1518558997970-4ddc236affcd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+}
+
+#slide2 {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1507413245164-6160d8298b31?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+}
+
+#slide3 {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+}
+
+.slide-content {
+  max-width: 800px;
+  padding: 0 20px;
+  z-index: 2;
+}
+
+.slide-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.slide-content p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.slider-nav:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.slider-nav.prev {
+  left: 20px;
+}
+
+.slider-nav.next {
+  right: 20px;
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.slider-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.slider-dots span.active {
+  background-color: white;
+  transform: scale(1.2);
+}
+
+/* Featured Services Section */
+.featured-services {
+  padding: 120px 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.featured-services::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+/* Add cosmic stars */
+.featured-services::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(2px 2px at 40px 60px, #ffffff 100%, transparent),
+    radial-gradient(2px 2px at 20px 50px, #ffffff 100%, transparent),
+    radial-gradient(2px 2px at 30px 100px, #ffffff 100%, transparent),
+    radial-gradient(2px 2px at 40px 60px, #ffffff 100%, transparent),
+    radial-gradient(2px 2px at 110px 90px, #ffffff 100%, transparent),
+    radial-gradient(2px 2px at 190px 150px, #ffffff 100%, transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.15;
+  z-index: 0;
+  animation: twinkling 8s linear infinite;
+}
+
+@keyframes twinkling {
+  0% { opacity: 0.1; }
+  50% { opacity: 0.2; }
+  100% { opacity: 0.1; }
+}
+
+.featured-services .section-header h2,
+.featured-services .section-header p {
+  color: white;
+}
+
+.featured-services .section-header h2::after {
+  background-color: #FF8C00;
+}
+
+.scroll-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  animation: pulse 2s infinite;
+}
+
+.scroll-indicator span {
+  margin-right: 10px;
+}
+
+.scroll-indicator i {
+  animation: slideRight 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+@keyframes slideRight {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+  padding: 20px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.service-card {
+  border-radius: 15px;
+  padding: 40px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  height: 100%;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 60%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.service-card:nth-child(1)::after {
+  top: -75px;
+  right: -75px;
+}
+
+.service-card:nth-child(2)::after {
+  bottom: -75px;
+  left: -75px;
+}
+
+.service-card:nth-child(3)::after {
+  top: -75px;
+  left: -75px;
+}
+
+.service-card:nth-child(4)::after {
+  bottom: -75px;
+  right: -75px;
+}
+
+.service-card:nth-child(1) {
+  background: linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-card:nth-child(2) {
+  background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-card:nth-child(3) {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-card:nth-child(4) {
+  background: linear-gradient(135deg, #F09819 0%, #EDDE5D 100%);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.service-card.featured::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: rotate(45deg) translate(50px, -80px);
+  z-index: -1;
+}
+
+.featured-badge {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  background-color: #FFD700;
+  color: #333;
+  padding: 5px 15px;
+  font-size: 0.8rem;
+  border-radius: 5px 0 0 5px;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.service-icon {
+  font-size: 3.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 1;
+}
+
+.service-icon::after {
+  content: '';
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.service-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: white;
+  position: relative;
+  display: inline-block;
+}
+
+.service-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.service-card p {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 25px;
+  line-height: 1.7;
+}
+
+.service-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  transition: var(--transition);
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  border-radius: 30px;
+}
+
+.service-link i {
+  margin-left: 8px;
+  transition: var(--transition);
+}
+
+.service-link:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.service-link:hover i {
+  transform: translateX(5px);
+}
+
+.view-all-services {
+  text-align: center;
+  margin-top: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.view-all-services .secondary-btn {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  font-weight: 600;
+  padding: 12px 30px;
+}
+
+.view-all-services .secondary-btn:hover {
+  background-color: white;
+  color: #16213e;
+}
+
+/* Zodiac Section with Tabs */
+.zodiac-section {
+  padding: 100px 0;
+  background-color: white;
+}
+
+.zodiac-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.zodiac-tabs button {
+  background: none;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--light-text);
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+.zodiac-tabs button:hover {
+  color: var(--primary-color);
+}
+
+.zodiac-tabs button.active {
+  color: var(--primary-color);
+}
+
+.zodiac-tabs button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Daily Horoscope Tab */
+.sign-selector {
+  margin-bottom: 40px;
+}
+
+.sign-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 15px;
+}
+
+.sign-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  background-color: var(--light-bg);
+}
+
+.sign-item:hover {
+  background-color: #f0f0f0;
+}
+
+.sign-item.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.sign-icon {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.sign-item span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.horoscope-display {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+}
+
+.horoscope-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.horoscope-header h3 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+.date {
+  color: var(--light-text);
+  font-size: 0.9rem;
+}
+
+.horoscope-body p {
+  margin-bottom: 20px;
+  color: var(--text-color);
+  line-height: 1.7;
+}
+
+.horoscope-aspects {
+  display: flex;
+  gap: 30px;
+  margin: 25px 0;
+  padding: 15px;
+  background-color: var(--light-bg);
+  border-radius: 8px;
+}
+
+.aspect-label {
+  font-weight: 600;
+  color: var(--text-color);
+  margin-right: 8px;
+}
+
+.aspect-value {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.read-more i {
+  margin-left: 8px;
+  transition: var(--transition);
+}
+
+.read-more:hover {
+  color: var(--primary-dark);
+}
+
+.read-more:hover i {
+  transform: translateX(5px);
+}
+
+/* Characteristics Tab */
+.zodiac-characteristics {
+  padding: 20px 0;
+}
+
+.zodiac-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.zodiac-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.zodiac-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.zodiac-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.zodiac-icon.fire {
+  background-color: #e74c3c;
+}
+
+.zodiac-icon.earth {
+  background-color: #27ae60;
+}
+
+.zodiac-icon.air {
+  background-color: #3498db;
+}
+
+.zodiac-icon.water {
+  background-color: #9b59b6;
+}
+
+.zodiac-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.date-range {
+  color: var(--light-text);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.traits {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.traits span {
+  background-color: var(--light-bg);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--text-color);
+}
+
+.element {
+  font-weight: 500;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.learn-more {
+  display: inline-block;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.learn-more:hover {
+  color: var(--primary-dark);
+}
+
+.view-all-signs {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Compatibility Tab */
+.compatibility-content {
+  padding: 20px 0;
+}
+
+.compatibility-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.compatibility-intro h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+.compatibility-intro p {
+  color: var(--light-text);
+  line-height: 1.7;
+}
+
+.compatibility-highlights {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.compatibility-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+  min-width: 250px;
+}
+
+.compatibility-card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.compatibility-card ul {
+  list-style: none;
+}
+
+.compatibility-card li {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compatibility-card li span {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.compatibility-card li span:first-child {
+  color: #e74c3c;
+}
+
+.compatibility-card li span:last-child {
+  color: #3498db;
+}
+
+.compatibility-cta {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Astrologers Section */
+.astrologers-section {
+  padding: 100px 0;
+  background-color: var(--light-bg);
+}
+
+.astrologers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.astrologer-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.astrologer-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.astrologer-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.astrologer-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.astrologer-card:hover .astrologer-image img {
+  transform: scale(1.1);
+}
+
+.astrologer-info {
+  padding: 25px;
+}
+
+.astrologer-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.specialization {
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.experience {
+  color: var(--light-text);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #f1c40f;
+}
+
+.rating span {
+  margin-left: 8px;
+  color: var(--light-text);
+  font-size: 0.9rem;
+}
+
+.book-btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.book-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.view-all-astrologers {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  padding: 100px 0;
+  background-color: white;
+}
+
+.testimonials-carousel {
+  display: flex;
+  gap: 30px;
+  margin-top: 50px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scrollbar-width: none; /* Firefox */
+}
+
+.testimonials-carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.testimonial {
+  min-width: 350px;
+  flex: 1;
+}
+
+.testimonial-content {
+  background-color: var(--light-bg);
+  border-radius: 10px;
+  padding: 30px;
+  position: relative;
+}
+
+.quote-icon {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 15px;
+  opacity: 0.3;
+}
+
+.testimonial-content p {
+  color: var(--text-color);
+  margin-bottom: 25px;
+  line-height: 1.7;
+}
+
+.client {
+  display: flex;
+  align-items: center;
+}
+
+.client-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px;
+  border: 3px solid white;
+}
+
+.client-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.client-info h4 {
+  font-size: 1.1rem;
+  margin-bottom: 3px;
+  color: var(--text-color);
+}
+
+.client-info p {
+  color: var(--light-text);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Blog Section */
+.blog-section {
+  padding: 100px 0;
+  background-color: var(--light-bg);
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.blog-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.blog-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.blog-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.blog-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.blog-card:hover .blog-image img {
+  transform: scale(1.1);
+}
+
+.blog-content {
+  padding: 25px;
+}
+
+.blog-category {
+  display: inline-block;
+  background-color: var(--light-bg);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.blog-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--text-color);
+  line-height: 1.4;
+}
+
+.blog-content p {
+  color: var(--light-text);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.blog-content .read-more {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.blog-content .read-more:hover {
+  color: var(--primary-dark);
+}
+
+.view-all-posts {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Call to Action Section */
+.cta-section {
+  padding: 100px 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .slide-content h1 {
+    font-size: 3rem;
+  }
+  
+  .slide-content p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 992px) {
+  /* Section spacing for tablet */
+  section {
+    margin-bottom: 60px;
+  }
+
+  section:not(:last-child)::after {
+    bottom: -30px;
+  }
+
+  /* Hero section specific margin for tablet */
+  .hero-section {
+    margin-bottom: 40px;
+  }
+
+  /* Section separator for tablet */
+  .section-separator {
+    height: 50px;
+    margin: 15px 0;
+  }
+
+  .section-separator::before {
+    width: 70%;
+  }
+
+  .section-separator::after {
+    font-size: 1.3rem;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .slide-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .compatibility-highlights {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .compatibility-card {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .cta-content h2 {
+    font-size: 2.2rem;
+  }
+
+  /* Video and Expert responsive adjustments */
+  .video-expert-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .video-box, .ask-expert-box {
+    height: auto;
+  }
+
+  .ask-expert-box {
+    padding: 30px;
+  }
+
+  .expert-form-container {
+    padding: 20px;
+  }
+
+  /* Services responsive adjustments */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 25px;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-header h2 {
+    font-size: 2rem;
+  }
+  
+  .slide-content h1 {
+    font-size: 2rem;
+  }
+  
+  .slide-content p {
+    font-size: 1rem;
+  }
+  
+  .hero-section {
+    height: 80vh;
+  }
+  
+  .zodiac-tabs {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-bottom: none;
+  }
+  
+  .zodiac-tabs button {
+    width: 100%;
+    max-width: 300px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .zodiac-tabs button.active::after {
+    display: none;
+  }
+  
+  .horoscope-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .horoscope-aspects {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .primary-btn, .secondary-btn, .outline-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Section spacing for mobile */
+  section {
+    margin-bottom: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  section:not(:last-child)::after {
+    bottom: -25px;
+    width: 60px;
+  }
+
+  /* Hero section specific margin for mobile */
+  .hero-section {
+    margin-bottom: 30px;
+  }
+
+  /* Section separator for mobile */
+  .section-separator {
+    height: 40px;
+    margin: 10px 0;
+  }
+
+  .section-separator::before {
+    width: 60%;
+  }
+
+  .section-separator::after {
+    font-size: 1.1rem;
+    padding: 0 10px;
+  }
+
+  .section-header {
+    margin-bottom: 30px;
+  }
+
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .slide-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .slider-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .sign-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .testimonial {
+    min-width: 280px;
+  }
+
+  /* Video and Expert responsive adjustments for mobile */
+  .video-expert-section {
+    padding: 50px 0;
+  }
+
+  .ask-expert-box {
+    padding: 25px 15px;
+  }
+
+  .ask-expert-box h3 {
+    font-size: 1.5rem;
+  }
+
+  .expert-form-container {
+    padding: 15px;
+  }
+
+  .expert-credentials {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .expert-avatar {
+    margin: 0 auto 15px;
+  }
+
+  /* Services responsive adjustments for mobile */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .service-card {
+    padding: 30px 20px;
+    margin-bottom: 15px;
+  }
+
+  .service-icon {
+    font-size: 3rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .featured-badge {
+    font-size: 0.7rem;
+    padding: 4px 12px;
+  }
+
+  /* Kundali forms responsive adjustments */
+  .kundali-forms-container {
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  .kundali-form-box {
+    padding: 25px 15px;
+  }
+}

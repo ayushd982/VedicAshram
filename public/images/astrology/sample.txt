@@ -1,0 +1,15 @@
+This is a placeholder file to ensure the directory structure is created.
+
+Actual image files should be placed here with the following names:
+1. hast-rekha-jyotish.jpg
+2. number-jyotish.jpg
+3. employee-horoscope.jpg
+4. architectural-astrology.jpg
+5. birth-personal-astrology.jpg
+6. birth-chart.jpg
+7. birth-time-determination.jpg
+8. career-wealth-horoscope.jpg
+9. child-horoscope.jpg
+10. horoscope-matching.jpg
+11. corporate-imaging.jpg
+12. kp-horary.jpg

@@ -1,0 +1,354 @@
+.mantrocharan-container {
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.background-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.25;
+}
+
+.mantrocharan-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  margin-top: 80px; /* Add space for navbar */
+  color: #F8F8FF; /* Off-white/Ivory for body text */
+  font-family: 'Poppins', 'Arial', sans-serif;
+}
+
+/* Main Header Styles */
+.main-header {
+  text-align: center;
+  padding: 3rem 2rem;
+  margin-bottom: 3rem;
+  background: rgba(25, 25, 112, 0.8); /* Indigo/Deep Blue with transparency */
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.main-header h1 {
+  font-size: 2.5rem;
+  color: #FF9933; /* Deep Saffron for main heading */
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Section Styles */
+section {
+  background: rgba(25, 25, 112, 0.7); /* Indigo/Deep Blue with transparency */
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease-out;
+}
+
+section h2 {
+  color: #FFD700; /* Gold for subheadings */
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  border-bottom: 2px solid #FFD700;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+section h3 {
+  color: #FFD700; /* Gold for subheadings */
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+section h4 {
+  color: #FFEBCD; /* Sandalwood Beige for highlighted sections */
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+section p, section li {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* List Styles */
+ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+ul li {
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+ul li::before {
+  content: "•";
+  color: #FF9933; /* Deep Saffron for list markers */
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* Benefits Table */
+.benefits-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.benefit-row {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-row:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.benefit-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.benefit-title {
+  color: #FFD700; /* Gold for benefit titles */
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.benefit-description {
+  color: #F8F8FF; /* Off-white/Ivory for descriptions */
+}
+
+/* Module Cards */
+.module-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.8rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 4px solid #FF9933; /* Deep Saffron border */
+}
+
+.module-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.module-duration {
+  display: inline-block;
+  background-color: rgba(255, 153, 51, 0.2); /* Deep Saffron with transparency */
+  color: #FFEBCD; /* Sandalwood Beige */
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.practical-exercise {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgba(255, 235, 205, 0.1); /* Sandalwood Beige with transparency */
+  border-radius: 5px;
+  font-style: italic;
+}
+
+/* Testimonials */
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 4rem;
+  color: rgba(255, 153, 51, 0.2); /* Deep Saffron with transparency */
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.testimonial-text {
+  padding-left: 1.5rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  text-align: right;
+  margin-top: 1rem;
+  color: #FFEBCD; /* Sandalwood Beige */
+  font-weight: 600;
+}
+
+/* Mantras Table */
+.mantras-table {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.mantra-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mantra-row:last-child {
+  border-bottom: none;
+}
+
+.mantra-name {
+  font-weight: 600;
+  color: #FFD700; /* Gold */
+}
+
+.mantra-use {
+  color: #F8F8FF; /* Off-white/Ivory */
+}
+
+/* Enrollment Section */
+.enrollment-section {
+  text-align: center;
+  background: linear-gradient(135deg, rgba(25, 25, 112, 0.9), rgba(25, 25, 112, 0.7)); /* Indigo/Deep Blue gradient */
+  padding: 3rem 2rem;
+}
+
+.enrollment-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.enroll-button, .demo-button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.enroll-button {
+  background-color: #B22222; /* Crimson Red for CTA buttons */
+  color: white;
+}
+
+.demo-button {
+  background-color: transparent;
+  color: white;
+  border: 2px solid #B22222; /* Crimson Red */
+}
+
+.enroll-button:hover, .demo-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-header {
+    padding: 2rem 1rem;
+  }
+
+  .main-header h1 {
+    font-size: 2rem;
+  }
+
+  .mantrocharan-content {
+    padding: 1rem;
+  }
+
+  .benefits-table {
+    grid-template-columns: 1fr;
+  }
+  
+  section {
+    padding: 1.5rem;
+  }
+  
+  .enrollment-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .enroll-button, .demo-button {
+    width: 100%;
+  }
+  
+  .mantra-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  section h2 {
+    font-size: 1.6rem;
+  }
+  
+  section h3 {
+    font-size: 1.3rem;
+  }
+  
+  section p, section li {
+    font-size: 1rem;
+  }
+}

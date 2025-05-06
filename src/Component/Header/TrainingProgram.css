@@ -1,0 +1,911 @@
+/* Training Program Page Styles */
+
+.training-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a237e 0%, #283593 25%, #303f9f 50%, #3949ab 75%, #3f51b5 100%);
+  background-attachment: fixed;
+  position: relative;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  z-index: 1;
+  overflow-x: hidden;
+}
+
+/* Celestial background overlay */
+.training-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><circle cx="200" cy="200" r="150" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/><circle cx="200" cy="200" r="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/><circle cx="200" cy="200" r="50" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1"/></svg>');
+  background-size: 400px 400px;
+  background-repeat: repeat;
+  opacity: 0.8;
+  z-index: -1;
+}
+
+/* Celestial elements */
+.celestial-elements {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.celestial-body {
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+}
+
+.star1, .star2, .star3 {
+  width: 10px;
+  height: 10px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="rgba(255,255,255,0.8)"/></svg>');
+  animation: twinkle 3s infinite alternate;
+}
+
+.star1 {
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.star2 {
+  top: 25%;
+  right: 15%;
+  animation-delay: 0.5s;
+}
+
+.star3 {
+  top: 60%;
+  left: 20%;
+  animation-delay: 1s;
+}
+
+.planet1, .planet2 {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.planet1 {
+  top: 30%;
+  right: 10%;
+  background: radial-gradient(circle at 30% 30%, #ffeb3b, #ff9800);
+  animation: orbit 20s linear infinite;
+}
+
+.planet2 {
+  bottom: 20%;
+  left: 15%;
+  background: radial-gradient(circle at 30% 30%, #4fc3f7, #2196f3);
+  animation: orbit 25s linear infinite reverse;
+}
+
+.moon {
+  width: 40px;
+  height: 40px;
+  top: 40%;
+  left: 5%;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="rgba(255,255,255,0.2)"/><circle cx="20" cy="20" r="15" fill="rgba(255,255,255,0.4)"/></svg>');
+  animation: glow 8s infinite alternate;
+}
+
+.sun {
+  width: 60px;
+  height: 60px;
+  top: 10%;
+  right: 5%;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="20" fill="rgba(255,193,7,0.3)"/><circle cx="30" cy="30" r="15" fill="rgba(255,193,7,0.5)"/></svg>');
+  animation: glow 5s infinite alternate;
+}
+
+.constellation {
+  position: absolute;
+  opacity: 0.3;
+}
+
+.constellation1 {
+  top: 20%;
+  left: 30%;
+  width: 100px;
+  height: 100px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white"/><circle cx="40" cy="30" r="2" fill="white"/><circle cx="60" cy="15" r="2" fill="white"/><circle cx="80" cy="40" r="2" fill="white"/><circle cx="30" cy="60" r="2" fill="white"/><circle cx="70" cy="70" r="2" fill="white"/><line x1="20" y1="20" x2="40" y2="30" stroke="white" stroke-width="0.5"/><line x1="40" y1="30" x2="60" y2="15" stroke="white" stroke-width="0.5"/><line x1="60" y1="15" x2="80" y2="40" stroke="white" stroke-width="0.5"/><line x1="80" y1="40" x2="70" y2="70" stroke="white" stroke-width="0.5"/><line x1="70" y1="70" x2="30" y2="60" stroke="white" stroke-width="0.5"/><line x1="30" y1="60" x2="40" y2="30" stroke="white" stroke-width="0.5"/></svg>');
+}
+
+.constellation2 {
+  bottom: 30%;
+  right: 20%;
+  width: 120px;
+  height: 120px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><circle cx="30" cy="30" r="2" fill="white"/><circle cx="50" cy="20" r="2" fill="white"/><circle cx="70" cy="40" r="2" fill="white"/><circle cx="90" cy="30" r="2" fill="white"/><circle cx="60" cy="60" r="2" fill="white"/><circle cx="40" cy="80" r="2" fill="white"/><circle cx="80" cy="90" r="2" fill="white"/><line x1="30" y1="30" x2="50" y2="20" stroke="white" stroke-width="0.5"/><line x1="50" y1="20" x2="70" y2="40" stroke="white" stroke-width="0.5"/><line x1="70" y1="40" x2="90" y2="30" stroke="white" stroke-width="0.5"/><line x1="70" y1="40" x2="60" y2="60" stroke="white" stroke-width="0.5"/><line x1="60" y1="60" x2="40" y2="80" stroke="white" stroke-width="0.5"/><line x1="60" y1="60" x2="80" y2="90" stroke="white" stroke-width="0.5"/></svg>');
+}
+
+.constellation3 {
+  top: 60%;
+  left: 10%;
+  width: 80px;
+  height: 80px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><circle cx="10" cy="10" r="2" fill="white"/><circle cx="30" cy="20" r="2" fill="white"/><circle cx="50" cy="10" r="2" fill="white"/><circle cx="70" cy="30" r="2" fill="white"/><circle cx="40" cy="50" r="2" fill="white"/><circle cx="20" cy="70" r="2" fill="white"/><line x1="10" y1="10" x2="30" y2="20" stroke="white" stroke-width="0.5"/><line x1="30" y1="20" x2="50" y2="10" stroke="white" stroke-width="0.5"/><line x1="50" y1="10" x2="70" y2="30" stroke="white" stroke-width="0.5"/><line x1="70" y1="30" x2="40" y2="50" stroke="white" stroke-width="0.5"/><line x1="40" y1="50" x2="20" y2="70" stroke="white" stroke-width="0.5"/></svg>');
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(100px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(100px) rotate(-360deg);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+/* Ensure the footer is visible */
+.training-page .site-footer {
+  position: relative;
+  z-index: 2;
+  margin-top: 0;
+  width: 100%;
+  display: block;
+  clear: both;
+}
+
+.training-content {
+  flex: 1;
+  padding-top: 150px; /* Space after navbar */
+  padding-bottom: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.training-content .training-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.95);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" stroke="rgba(63,81,181,0.05)" stroke-width="2" fill="none"/></svg>');
+  background-size: 100px 100px;
+  background-repeat: repeat;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Page Header Styles */
+.page-header {
+  text-align: center;
+  position: relative;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+}
+
+.zodiac-symbol {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+}
+
+.zodiac-symbol.left {
+  left: 0;
+  top: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="30" fill="none" stroke="rgba(63,81,181,0.3)" stroke-width="2"/><path d="M25,40 L55,40 M40,25 L40,55" stroke="rgba(63,81,181,0.3)" stroke-width="2"/></svg>');
+  transform: rotate(-15deg);
+}
+
+.zodiac-symbol.right {
+  right: 0;
+  top: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="30" fill="none" stroke="rgba(63,81,181,0.3)" stroke-width="2"/><path d="M25,25 L55,55 M25,55 L55,25" stroke="rgba(63,81,181,0.3)" stroke-width="2"/></svg>');
+  transform: rotate(15deg);
+}
+
+.main-heading {
+  color: #303f9f;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.main-heading i {
+  margin-right: 15px;
+  color: #3f51b5;
+}
+
+.heading-subtitle {
+  display: block;
+  font-size: 1.2rem;
+  color: #777;
+  font-weight: normal;
+  margin-top: 10px;
+}
+
+/* Section Styles */
+.section-heading {
+  color: #303f9f;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(63, 81, 181, 0.2);
+  position: relative;
+}
+
+.section-heading i {
+  margin-right: 10px;
+  color: #3f51b5;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 80px;
+  height: 2px;
+  background-color: #3f51b5;
+}
+
+.intro-paragraph {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+.section-intro {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+/* Training Illustration */
+.training-illustration {
+  height: 200px;
+  position: relative;
+  margin: 40px 0;
+  overflow: hidden;
+  background: linear-gradient(to bottom, rgba(63, 81, 181, 0.05), rgba(63, 81, 181, 0.1));
+  border-radius: 10px;
+}
+
+.guru-silhouette {
+  position: absolute;
+  width: 80px;
+  height: 150px;
+  bottom: 20px;
+  left: calc(40% - 40px);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="150" viewBox="0 0 80 150"><circle cx="40" cy="30" r="20" fill="rgba(0,0,0,0.7)"/><path d="M20,60 L60,60 L65,150 L15,150 Z" fill="rgba(0,0,0,0.7)"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 2;
+}
+
+.student-silhouette {
+  position: absolute;
+  width: 60px;
+  height: 120px;
+  bottom: 20px;
+  left: calc(60% - 30px);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="120" viewBox="0 0 60 120"><circle cx="30" cy="25" r="15" fill="rgba(0,0,0,0.7)"/><path d="M15,50 L45,50 L50,120 L10,120 Z" fill="rgba(0,0,0,0.7)"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 2;
+}
+
+.knowledge-transfer {
+  position: absolute;
+  top: 40px;
+  left: 42%;
+  width: 60px;
+  height: 30px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="30" viewBox="0 0 60 30"><path d="M0,15 L50,15 M40,5 L50,15 L40,25" stroke="rgba(63,81,181,0.7)" stroke-width="2" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Courses Grid */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.course-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.course-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+}
+
+.course-card.beginner::before {
+  background-color: #4caf50;
+}
+
+.course-card.intermediate::before {
+  background-color: #ff9800;
+}
+
+.course-card.advanced::before {
+  background-color: #f44336;
+}
+
+.course-card.specialized::before {
+  background-color: #9c27b0;
+}
+
+.course-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.course-level {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.beginner .course-level {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+}
+
+.intermediate .course-level {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: #ff9800;
+}
+
+.advanced .course-level {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+}
+
+.specialized .course-level {
+  background-color: rgba(156, 39, 176, 0.1);
+  color: #9c27b0;
+}
+
+.course-title {
+  color: #303f9f;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.course-duration {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.course-duration i {
+  margin-right: 5px;
+}
+
+.course-description {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.course-highlights {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.course-highlights li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.course-highlights li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #3f51b5;
+}
+
+.course-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.course-price {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #303f9f;
+}
+
+.enroll-button {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: #3f51b5;
+  color: white;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.enroll-button:hover {
+  background-color: #303f9f;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(63, 81, 181, 0.3);
+}
+
+/* Learning Methods */
+.methods-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.method-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.method-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.method-icon {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(63, 81, 181, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.method-icon i {
+  font-size: 30px;
+  color: #3f51b5;
+}
+
+.method-title {
+  color: #303f9f;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.method-description {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.method-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.feature {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.feature i {
+  color: #4caf50;
+  margin-right: 5px;
+}
+
+/* Faculty Grid */
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.faculty-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faculty-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.faculty-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  background-color: #eee;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="45" r="25" fill="%23999"/><path d="M30,120 L30,85 C30,65 45,60 60,60 C75,60 90,65 90,85 L90,120 Z" fill="%23999"/></svg>');
+  background-size: cover;
+}
+
+.faculty-name {
+  color: #303f9f;
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.faculty-title {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.faculty-description {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.faculty-specialties {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.specialty {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: rgba(63, 81, 181, 0.1);
+  color: #3f51b5;
+  border-radius: 15px;
+  font-size: 0.8rem;
+}
+
+/* Testimonials Slider */
+.testimonials-slider {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.testimonial {
+  flex: 1 1 400px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.testimonial::before {
+  content: '"';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 60px;
+  color: rgba(63, 81, 181, 0.1);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.testimonial-text {
+  color: #444;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+}
+
+.author-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #eee;
+  margin-right: 15px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"><circle cx="25" cy="20" r="10" fill="%23999"/><path d="M10,50 L10,35 C10,25 20,25 25,25 C30,25 40,25 40,35 L40,50 Z" fill="%23999"/></svg>');
+  background-size: cover;
+}
+
+.author-name {
+  color: #303f9f;
+  font-size: 1.1rem;
+  margin: 0 0 5px;
+}
+
+.author-location {
+  color: #777;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* FAQ Section */
+.faq-list {
+  margin-top: 30px;
+}
+
+.faq-item {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.faq-question {
+  color: #303f9f;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  position: relative;
+  padding-left: 30px;
+}
+
+.faq-question::before {
+  content: 'Q';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #3f51b5;
+  font-weight: 700;
+}
+
+.faq-answer {
+  color: #444;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 30px;
+}
+
+.faq-answer::before {
+  content: 'A';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #303f9f;
+  font-weight: 700;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, rgba(63, 81, 181, 0.1) 0%, rgba(48, 63, 159, 0.1) 100%);
+  border-radius: 15px;
+  padding: 40px;
+  margin-top: 60px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(63, 81, 181, 0.2);
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-decoration {
+  position: absolute;
+  right: -50px;
+  bottom: -50px;
+  width: 200px;
+  height: 200px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="rgba(63,81,181,0.1)" stroke-width="2"/><circle cx="100" cy="100" r="60" fill="none" stroke="rgba(63,81,181,0.1)" stroke-width="2"/><circle cx="100" cy="100" r="40" fill="none" stroke="rgba(63,81,181,0.1)" stroke-width="2"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  transform: rotate(15deg);
+}
+
+.cta-heading {
+  color: #303f9f;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.cta-description {
+  color: #444;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 700px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button.primary {
+  background-color: #3f51b5;
+  color: white;
+  box-shadow: 0 5px 15px rgba(63, 81, 181, 0.3);
+}
+
+.cta-button.primary:hover {
+  background-color: #303f9f;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(63, 81, 181, 0.4);
+}
+
+.cta-button.secondary {
+  background-color: white;
+  color: #303f9f;
+  border: 2px solid #303f9f;
+}
+
+.cta-button.secondary:hover {
+  background-color: rgba(63, 81, 181, 0.1);
+  transform: translateY(-3px);
+}
+
+.cta-button i {
+  margin-right: 8px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .main-heading {
+    font-size: 2.2rem;
+  }
+  
+  .training-content {
+    padding-top: 120px;
+  }
+  
+  .training-content .training-container {
+    padding: 30px;
+  }
+  
+  .cta-heading {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 1.8rem;
+  }
+  
+  .heading-subtitle {
+    font-size: 1rem;
+  }
+  
+  .section-heading {
+    font-size: 1.5rem;
+  }
+  
+  .training-content {
+    padding-top: 100px;
+  }
+  
+  .training-content .training-container {
+    padding: 20px;
+  }
+  
+  .cta-section {
+    padding: 30px;
+  }
+  
+  .cta-heading {
+    font-size: 1.6rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .cta-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-heading {
+    font-size: 1.6rem;
+  }
+  
+  .zodiac-symbol {
+    display: none;
+  }
+  
+  .course-card {
+    padding: 20px;
+  }
+  
+  .method-card {
+    padding: 20px;
+  }
+  
+  .testimonial {
+    padding: 20px;
+  }
+}

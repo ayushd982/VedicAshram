@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:wght@400;500;600&family=Merriweather:wght@300;400;700&family=Open+Sans:wght@400;500;600&display=swap');
+
+/* Main container */
+.planetary-page {
+  font-family: 'Merriweather', serif;
+  color: #F5F5DC; /* Ivory/Beige for body text */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.planetary-content {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  padding: 80px 0;
+}
+
+.planetary-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* High opacity dark overlay */
+  z-index: 0;
+}
+
+.planetary-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header styles */
+.page-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.main-heading {
+  font-family: 'Cinzel', serif;
+  font-size: 2.8rem;
+  color: #4169E1; /* Royal Blue */
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.sub-heading {
+  font-family: 'Lora', serif;
+  font-size: 1.5rem;
+  color: #FFD700; /* Gold */
+  font-weight: 400;
+  margin-top: 0;
+}
+
+.cosmic-icon {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+/* Section styles */
+section {
+  margin-bottom: 60px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.section-heading {
+  font-family: 'Lora', serif;
+  font-size: 2rem;
+  color: #008080; /* Teal */
+  margin-bottom: 20px;
+  border-bottom: 2px solid #4B0082; /* Indigo */
+  padding-bottom: 10px;
+}
+
+.section-intro {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.intro-paragraph {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* Planet cards */
+.planet-card {
+  background-color: rgba(10, 10, 30, 0.7);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-left: 4px solid #4169E1; /* Royal Blue */
+}
+
+.planet-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  color: #FFD700; /* Gold */
+  margin-bottom: 15px;
+}
+
+.planet-details {
+  padding-left: 15px;
+}
+
+.planet-details p {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.planet-details strong {
+  color: #008080; /* Teal */
+}
+
+/* Tables */
+.houses-table-container,
+.dashas-table-container,
+.ascendant-table-container {
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th {
+  background-color: #4169E1; /* Royal Blue */
+  color: white;
+  padding: 12px 15px;
+  text-align: left;
+}
+
+td {
+  padding: 10px 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Yoga items */
+.yogas-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.yoga-item {
+  background-color: rgba(10, 10, 30, 0.7);
+  border-radius: 8px;
+  padding: 15px;
+  border-left: 4px solid #FFD700; /* Gold */
+}
+
+.yoga-title {
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+  color: #4169E1; /* Royal Blue */
+  margin-bottom: 10px;
+}
+
+.yoga-icon {
+  margin-right: 8px;
+}
+
+/* Remedies section */
+.remedies-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.remedy-category {
+  background-color: rgba(10, 10, 30, 0.7);
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.remedy-category-title {
+  font-family: 'Lora', serif;
+  color: #FFD700; /* Gold */
+  margin-bottom: 15px;
+}
+
+.remedy-list {
+  padding-left: 20px;
+}
+
+.remedy-list li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Case study */
+.case-study-content {
+  background-color: rgba(10, 10, 30, 0.7);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.case-study-details {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.case-study-icon {
+  margin-right: 10px;
+}
+
+.case-study-analysis {
+  padding-left: 30px;
+}
+
+.case-study-analysis li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+/* CTA section */
+.cta-section {
+  text-align: center;
+  padding: 40px;
+  background-color: rgba(10, 10, 30, 0.8);
+  border-radius: 10px;
+  margin-top: 50px;
+}
+
+.cta-heading {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  color: #FFD700; /* Gold */
+  margin-bottom: 30px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button.primary {
+  background-color: #228B22; /* Emerald Green */
+  color: white;
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: #FFD700; /* Gold */
+  border: 2px solid #FFD700;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 2rem;
+  }
+  
+  .sub-heading {
+    font-size: 1.2rem;
+  }
+  
+  .section-heading {
+    font-size: 1.5rem;
+  }
+  
+  .yogas-list,
+  .remedies-content {
+    grid-template-columns: 1fr;
+  }
+  
+  section {
+    padding: 20px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-heading {
+    font-size: 1.8rem;
+  }
+  
+  .planet-title {
+    font-size: 1.3rem;
+  }
+  
+  .planetary-content {
+    padding: 60px 0;
+  }
+}
