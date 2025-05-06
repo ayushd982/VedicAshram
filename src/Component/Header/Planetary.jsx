@@ -3,7 +3,7 @@ import Navbar from './Navbar.jsx';
 import Footer from '../Footer/Footer';
 import './Planetary.css';
 import { useLanguage } from '../../context/LanguageContext';
-import planetBg from '../../assets/planet.jpg';
+import planetBg from '../../assets/Planet.jpg';
 
 const Planetary = () => {
   const { language } = useLanguage();
