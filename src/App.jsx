@@ -37,7 +37,7 @@ const Nuemorologyconsult = lazy(() => import('./Component/Header/Nuemorologycons
 const Lifepath = lazy(() => import('./Component/Header/Lifepath.jsx'))
 const BirthAstrology = lazy(() => import('./Component/Header/Birth&Astrology.jsx'))
 const Carreroverview = lazy(() => import('./Component/Header/Carreroverview.jsx'))
-const Jobanalysis = lazy(() => import('./Component/Header/jobBusinessAnalysis.jsx'))
+const Jobanalysis = lazy(() => import('./Component/Header/JobBusinessAnalysis.jsx'))
 const Careeranalysis = lazy(() => import('./Component/Header/Careeranalysis.jsx'))
 const ChildHoroscope = lazy(() => import('./Component/Header/ChildHoroscope.jsx'))
 const Lovemarriage = lazy(() => import('./Component/Header/Lovemarriage.jsx'))
