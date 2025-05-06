@@ -65,7 +65,7 @@ const Mahamritunjya = lazy(() => import('./Component/Header/Mahamritunjya.jsx'))
 const Manglik = lazy(() => import('./Component/Header/Manglik.jsx'))
 const Navratripujan = lazy(() => import('./Component/Header/Navratripujan.jsx'))
 const Rudraabhishek = lazy(() => import('./Component/Header/Rudraabhishek.jsx'))
-const KalSarp = lazy(() => import('./Component/Header/KalSarp.jsx'))
+
 const PitraDosh = lazy(() => import('./Component/Header/Pitradosh.jsx'))
 const Moolshanti = lazy(() => import('./Component/Header/Moolshanti_new.jsx'))
 const Bhoomipujan = lazy(() => import('./Component/Header/Bhoomipujan.jsx'))
@@ -244,7 +244,7 @@ const App = () => {
               <Route path="/yagya/Vivah-Sanskar" element={<Vivah />} />
               <Route path="/yagya/narayan-bali" element={<Narayanbali />} />
               <Route path="/yagya/Banglamukhi" element={<Bangalamukhi />} />
-              <Route path="/yagya/kal-sarp-dosh" element={<KalSarp />} />
+              
               <Route path="/askques" element={<Askques />} />
               <Route path="/chatnow" element={<chatnow />} />
               <Route path="/bookreport" element={<Bookreport />} />
